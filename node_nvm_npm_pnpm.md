@@ -12,3 +12,9 @@ Once you have installed NVM, you can install the latest Long Term Support (LTS) 
 NPM is the Node Package Manager. It manages dependencies and provides some additional tooling for JS projects, both frontend and backend. 
 
 # PNPM
+
+PNPM is a better version of NPM. Most of the improvement comes from package management - while NPM will redownload a dependency every tie it encounters it, PNPM will save all dependencies in one spot and reuse them if it can, making installation way faster. You can configure an alias in your shell, `alias npm='pnpm'`, to run PNPM instead of NPM while still using the `npm` command - this means if a script uses NPM, it will stay compatible.
+
+# Installation
+
+These commands will be run in your WSL instance if you are on Windows. 
