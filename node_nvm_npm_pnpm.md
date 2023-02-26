@@ -13,7 +13,7 @@ NPM is the Node Package Manager. It manages dependencies and provides some addit
 
 # PNPM
 
-PNPM is a better version of NPM. Most of the improvement comes from package management - while NPM will redownload a dependency every tie it encounters it, PNPM will save all dependencies in one spot and reuse them if it can, making installation way faster. You can configure an alias in your shell, `alias npm='pnpm'`, to run PNPM instead of NPM while still using the `npm` command - this means if a script uses NPM, it will stay compatible.
+PNPM is a better version of NPM. Most of the improvement comes from package management - while NPM will redownload a dependency every tie it encounters it, PNPM will save all dependencies in one spot and reuse them if it can, making installation way faster. To install PNPM, run `npm i -g pnpm`. You can configure an alias in your shell, `alias npm='pnpm'`, to run PNPM instead of NPM while still using the `npm` command - this means if a script uses NPM, it will stay compatible.
 
 # Installation
 
