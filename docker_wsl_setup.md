@@ -28,6 +28,7 @@ You will install Docker on your Windows system, but clone your code, install nod
 
 - Instead of installing `Ubuntu-22.04`, you can try setting up DistroD instead
 - All of the Docker and WSL setup commands will be run in Windows
+- The Docker install instructions contain links in the Pre-requisites section - make sure to go through those too.
 
 # Links
 
