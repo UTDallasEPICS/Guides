@@ -24,11 +24,15 @@ Host github.com
   IdentityFile ~/.ssh/<name of the private key>
 ```
 
+Hit `Ctrl+X` to exit nano. It will prompt you to save the file. Type `y` and hit enter to finish saving.
+
 Note that if you didn't do the copy, instead of `~/.ssh/<name of the private key>` you will provide `/mnt/c/Users/<your WINDOWS username>/.ssh/<name of the private key>`.
 
 You can either point the path at the copied keypair, or at the version sitting in Windows. 
 
 You should now be able to run `git clone`, `git pull`, etc. 
+
+To clone a repository, use `git clone ssh://git@github.com/utdallasepics/<your repository name>`.
 
 # Setting up npm alias for pnpm
 
