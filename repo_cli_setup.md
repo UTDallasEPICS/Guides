@@ -32,7 +32,7 @@ You can either point the path at the copied keypair, or at the version sitting i
 
 You should now be able to run `git clone`, `git pull`, etc. 
 
-To clone a repository, use `git clone ssh://git@github.com/utdallasepics/<your repository name>`.
+To clone a repository, use `git clone ssh://git@github.com/utdallasepics/<your repository name>`. If this is your first time cloning from GitHub, it will prompt you to accept the fingerprint of the remote host. You will need to type `yes`.
 
 # Setting up npm alias for pnpm
 
