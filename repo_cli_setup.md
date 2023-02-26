@@ -21,6 +21,8 @@ Host github.com
 ```
 You can either point the path at the copied keypair, or at the version sitting in Windows. 
 
+You should now be able to run `git clone`, `git pull`, etc. 
+
 # Setting up npm alias for pnpm
 
 In a WSL terminal, run `nano ~/.bashrc`. Navigate to the bottom of this file and add `alias npm="pnpm"`. This will automatically replace `npm` with `pnpm` whenever you execute `npm` in the terminal.
