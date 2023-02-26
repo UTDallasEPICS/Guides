@@ -6,7 +6,7 @@ You can either copy the file over to the Ubuntu instance, or point it at the ori
 
 If you want to copy the key over, you can use the `cp` command. When in WSL, your Windows filesystem can be accessed at `/mnt/C/Users/<your username>`.
 
-Thus, you can copy the key as follows: `cp /mnt/C/Users/<your username>/.ssh/<name of the private key> ~/.ssh/<name of the private key`
+Thus, you can copy the key as follows: `cp /mnt/C/Users/<your WINDOWS username>/.ssh/<name of the private key> ~/.ssh/<name of the private key`
 
 This will copy the key to your Ubuntu home folder. After copying, we will need to update permimssions. Run `chmod 600 /path/to/keyfile`.
 
