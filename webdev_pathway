@@ -1,0 +1,42 @@
+Some of these tutorials may use Sublime, or Atom - it is STRONGLY recommended that you use vscode.
+Some of these may use MongoDB. DO NOT USE MONGODB. Instead, use Prisma and either PostgreSQL or MySQL.
+Some of these use React/Next. We STRONGLY reccommend Vue/Nuxt over React/Next.
+
+Breaking out of just reading tutorials
+https://www.codewell.cc/blog/how-to-escape-tutorial-hell-and-start-building-your-own-projects
+
+The Odin Project
+https://www.theodinproject.com/paths/full-stack-javascript
+
+CSS for absolute beginners
+https://www.youtube.com/watch?v=yfoY53QXEnI
+
+JS Crash Course
+https://www.youtube.com/watch?v=hdI2bqOjy3c
+
+CSS Grid
+https://scrimba.com/learn/cssgrid
+
+CSS Flexbox
+https://www.youtube.com/playlist?list=PLC3y8-rFHvwg6rjbiMadCILrjh7QkvzoQ
+
+HTML for absolute beginners
+https://www.youtube.com/watch?v=UB1O30fR-EE
+
+Overview of the Chrome DevTools - note that every browser engine (Firefox, Chrome/Chromium, Safari) has it's own equivalent
+https://developer.chrome.com/docs/devtools/
+
+NodeJS
+For the API section: Express
+Database section: Prisma + Postgresql
+Testing: Vitest
+https://roadmap.sh/nodejs
+
+Vue Roadmap
+https://roadmap.sh/vue
+
+JS Overview
+https://javascript.info
+
+JS Roadmap
+https://roadmap.sh/javascript
