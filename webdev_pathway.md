@@ -40,3 +40,23 @@ https://javascript.info
 
 JS Roadmap
 https://roadmap.sh/javascript
+
+# Creating a Webpage with CSS, HTML, and JS
+
+## Serving a website/webapp
+
+## Creating and styling elements
+
+## Use Javascript to interact with users
+
+# Creating a project with a JS framework
+
+## Why frameworks
+
+## Metaframeworks
+
+## A simple Single Page Application with Vue
+
+## Adding a standalone server
+
+## Using Nuxt to merge the server and the frontend
