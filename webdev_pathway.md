@@ -212,6 +212,115 @@ Block displays elements stacked vertically, at full width:
 }
 ```
 
+## Brief discussion of Javascript
+
+There will be words here that you are not familiar with - look them up or ask!
+
+### Vanilla JavaScript
+
+- JavaScript was created in 1995 to add dynamic interactivity to web pages
+- Early JS was simple scripts that manipulated the DOM (Document Object Model)
+- Issues with loading complex projects due to async fetching
+- Kinda hacky/janky, but in a lovable way
+
+### jQuery
+
+- jQuery was released in 2006 and quickly became popular
+- It simplified DOM manipulation, AJAX (network calls), events etc with easy-to-use methods
+- Still no guarantee an import will exist by the time it needs to be executed
+
+### JavaScript Frameworks
+
+- AngularJS (2010) and other frameworks emerged to manage code complexity
+- React (2013) and Vue (2014) provided component architectures
+- Allowed building complex SPAs efficiently
+
+### Bundlers like Webpack
+
+- As apps grew, bundling tools like Webpack were needed
+- They bundle JS modules and assets into optimized files
+- Enables features like code splitting for efficient delivery
+- Solve the issues of async asset loading in browsers
+
+### Meta Frameworks
+
+- Next.js (2016) and Nuxt (2017) built on React and Vue
+- Provide server-side rendering, routing, optimizations
+- Complete framework for building web applications
+- Deeper integration between frontend and backend code
+
+The progression has been towards more powerful abstractions to manage complexity and enable faster development.
+
+### JSON (JavaScript Object Notation)
+
+- JSON is a text-based format for representing structured data
+- It is derived from JavaScript object syntax, but JSON is language agnostic
+- JSON uses key-value pairs, arrays, and objects to store data
+- Keys and strings are enclosed in double quotes
+- JSON data is easy for humans to read and write
+- JSON is easy to parse and generate for machines
+- JSON is lightweight and more compact than alternatives like XML
+- Supported in all major programming languages
+- Frequently used for API data and configuration files
+- Popular alternative to XML for web services and web apps
+- JSON data is transmitted as plain text and typically served with JSON content type
+- Can be converted to/from native JavaScript objects
+
+### Node.js
+
+- Node.js allows running JavaScript on the server
+- Having one language across the full stack simplifies a lot of things
+
+```js
+// Load HTTP module
+const http = require("http");
+
+// Create server
+const server = http.createServer((req, res) => {
+  // Handle request
+});
+
+// Listen on port
+server.listen(3000);
+```
+
+### Express
+
+- Express is a web framework for Node.js
+- Makes it easier to build web apps and APIs
+
+```js
+// Load express
+const express = require("express");
+
+// Create app
+const app = express();
+
+// Handle GET request
+app.get("/api/items", (req, res) => {
+  // Return JSON response
+  res.json([{ id: 1 }, { id: 2 }]);
+});
+
+// Listen on port
+app.listen(3000);
+```
+
+### REST APIs
+
+- REST APIs provide data via HTTP endpoints
+- Express allows building REST APIs simply
+- Route parameters - extract parts of an URL to use as variables
+- Query parameters - https://example.com/?queryParam1=value&queryParam2=5
+- Body - GET requests by convention do not allow a body, must use route/query parameters
+
+```
+GET /api/items - get items
+POST /api/items - create item
+PUT /api/items/1 - update item
+DELETE /api/items/1 - delete item
+```
+
 ## Use Javascript to interact with users
 
 ### Add button and text input
