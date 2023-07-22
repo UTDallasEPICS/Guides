@@ -119,6 +119,43 @@ In index.html:
 </div>
 ```
 
+### CSS Tags
+
+CSS can go in two places. `<style></style>` tags can contain class definitions. You can also write the rules for an element directly in the `style` attribute of any HTML element.
+
+```html
+<style>
+  /* this all needs to be valid CSS - also this is how you do comments in CSS */
+  /* this is a css class */
+  .example {
+    /* this is a 'rule' */
+    padding: 50px;
+  }
+</style>
+<!-- example of an HTML comment, and the next line is an example of providing styles via style attribute -->
+<p style="background-color: red; color: blue;"></p>
+<div class="header">
+  <h1>My Website</h1>
+  <nav>
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </nav>
+</div>
+
+<div class="content">
+  <div class="card">
+    <h2>Card Title</h2>
+    <p>This is some card content</p>
+  </div>
+
+  <div class="card">
+    <h2>Another Card</h2>
+    <p>Some content for this card</p>
+  </div>
+</div>
+```
+
 ### Grid Layout
 
 The grid layout allows elements to be organized in rows and columns:
@@ -141,7 +178,11 @@ Flexbox allows responsive alignment using flex properties:
 }
 ```
 
+This by default will render as a horizontal row. You can make it vertical with `flex-direction: column;`
+
 ### Block Layout
+
+This is the default display mode.
 
 Block displays elements stacked vertically, at full width:
 
@@ -173,9 +214,58 @@ Block displays elements stacked vertically, at full width:
 
 ## Use Javascript to interact with users
 
-- button
-- text input
-- updating the DOM
+### Add button and text input
+
+In HTML:
+
+```html
+<button id="increment">Increment</button>
+
+<input id="nameInput" type="text" />
+
+<p>Counter: <span id="counter">0</span></p>
+
+<p>Name: <span id="name"></span></p>
+```
+
+### Javascript
+
+Javascript will always go inside of a `<script></script>` tag. It can be loaded over network or be written directly inside the tag.
+
+`<script src="https://path/to/js/file"></script>` will load a specific file over network.
+
+An example inside a script tag:
+
+```html
+<script>
+  console.log("this is javascript");
+</script>
+```
+
+Add the following to the above HTML:
+
+```js
+// Get elements
+/* these are javascript objects that represent elements in the page itself  */
+const incrementBtn = document.getElementById("increment");
+const nameInput = document.getElementById("nameInput");
+const counterEl = document.getElementById("counter");
+const nameEl = document.getElementById("name");
+
+// Increment counter on click
+let counter = 0;
+/* this will run the function when the element emits the 'click' event - elements have a bunch of events they can emit */
+incrementBtn.addEventListener("click", () => {
+  // this is an arrow function
+  counter++;
+  counterEl.textContent = counter;
+});
+
+// Update name on input change
+nameInput.addEventListener("input", () => {
+  nameEl.textContent = nameInput.value;
+});
+```
 
 # Creating a project with a JS framework
 
