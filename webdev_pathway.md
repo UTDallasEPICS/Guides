@@ -34,6 +34,7 @@ https://roadmap.sh/nodejs
 
 Vue Roadmap
 https://roadmap.sh/vue
+https://vuejs.org
 
 JS Overview
 https://javascript.info
@@ -212,13 +213,13 @@ Block displays elements stacked vertically, at full width:
 }
 ```
 
-## Brief discussion of Javascript
+## Brief discussion of JS
 
 There will be words here that you are not familiar with - look them up or ask!
 
-### Vanilla JavaScript
+### Vanilla JS
 
-- JavaScript was created in 1995 to add dynamic interactivity to web pages
+- JS was created in 1995 to add dynamic interactivity to web pages
 - Early JS was simple scripts that manipulated the DOM (Document Object Model)
 - Issues with loading complex projects due to async fetching
 - Kinda hacky/janky, but in a lovable way
@@ -229,13 +230,15 @@ There will be words here that you are not familiar with - look them up or ask!
 - It simplified DOM manipulation, AJAX (network calls), events etc with easy-to-use methods
 - Still no guarantee an import will exist by the time it needs to be executed
 
-### JavaScript Frameworks
+### JS Frameworks
 
 - AngularJS (2010) and other frameworks emerged to manage code complexity
 - React (2013) and Vue (2014) provided component architectures
 - Allowed building complex SPAs efficiently
+- Two-way data binding
+- Markup languages other than HTML such as Pug and JSX
 
-### Bundlers like Webpack
+### Bundlers like Webpack/Rollup
 
 - As apps grew, bundling tools like Webpack were needed
 - They bundle JS modules and assets into optimized files
@@ -251,24 +254,20 @@ There will be words here that you are not familiar with - look them up or ask!
 
 The progression has been towards more powerful abstractions to manage complexity and enable faster development.
 
-### JSON (JavaScript Object Notation)
+### JSON (JS Object Notation)
 
 - JSON is a text-based format for representing structured data
-- It is derived from JavaScript object syntax, but JSON is language agnostic
+- Based on JS object syntax, available for all major languages
 - JSON uses key-value pairs, arrays, and objects to store data
 - Keys and strings are enclosed in double quotes
-- JSON data is easy for humans to read and write
-- JSON is easy to parse and generate for machines
+- JSON is very machine AND human readable
 - JSON is lightweight and more compact than alternatives like XML
-- Supported in all major programming languages
-- Frequently used for API data and configuration files
-- Popular alternative to XML for web services and web apps
-- JSON data is transmitted as plain text and typically served with JSON content type
-- Can be converted to/from native JavaScript objects
+- JSON data is transmitted as plain text, MIME type application/json
+- Can be converted to/from native JS objects
 
 ### Node.js
 
-- Node.js allows running JavaScript on the server
+- Node.js allows running JS on the server
 - Having one language across the full stack simplifies a lot of things
 
 ```js
@@ -321,7 +320,7 @@ PUT /api/items/1 - update item
 DELETE /api/items/1 - delete item
 ```
 
-## Use Javascript to interact with users
+## Use JS to interact with users
 
 ### Add button and text input
 
@@ -337,9 +336,9 @@ In HTML:
 <p>Name: <span id="name"></span></p>
 ```
 
-### Javascript
+### JS
 
-Javascript will always go inside of a `<script></script>` tag. It can be loaded over network or be written directly inside the tag.
+JS will always go inside of a `<script></script>` tag. It can be loaded over network or be written directly inside the tag.
 
 `<script src="https://path/to/js/file"></script>` will load a specific file over network.
 
@@ -378,14 +377,84 @@ nameInput.addEventListener("input", () => {
 
 # Creating a project with a JS framework
 
-## Why frameworks
-
-## Metaframeworks
-
 ## A simple Single Page Application with Vue
+
+TODO: compare/contrast event listeners + dom vs two way data binding
+TODO: need to go over project setup
+TODO: npm vs pnpm vs yarn
+`npm install vue@next pug typescript`
+
+### App.vue
+
+```vue
+<script setup lang="ts">
+import LearningExamples from "./components/LearningExamples.vue";
+</script>
+
+<template lang="pug">
+#app
+  LearningExamples  
+</template>
+```
+
+### LearningExamples.vue
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+
+const counter = ref<number>(0);
+const name = ref<string>("");
+
+const increment = () => {
+  counter.value++;
+};
+</script>
+
+<template lang="pug">
+div 
+  button(@click="increment") Increment
+  input(v-model="name")
+  p Counter: {{ counter }}
+  p Name: {{ name }}  
+</template>
+```
+
+You should be able to figure out how to use CSS to make the above examples look nice.
 
 ## Adding a standalone server
 
 ## Using Nuxt to merge the server and the frontend
 
 # Databases
+
+# Browser Dev Tools
+
+On most browsers, ctrl+shift+i, or right click on a webpage and look for 'Inspect'. Overview of the most important tabs below.
+
+Note that most frameworks have plugins for the dev tools that enable debugging of framework stuff.
+
+There are lots of useful buttons. See [here](https://developer.chrome.com/docs/devtools/). These look a little different in Firefox vs Safari vs Chromium (Brave, Edge, Chrome, Vivaldi, etc)
+
+## Inspector
+
+- View and modify the DOM and CSS
+- Inspect element styles and layout
+- Debug accessibility issues
+- Change CSS styles dynamically (as in, change the appearance of a page without touching the actual source)
+
+## Console
+
+- Log messages (console.log outputs here) and debug JS
+- Execute JS
+- Interact with page scripts
+- Inspect variable values
+- View network requests/errors
+
+## Network
+
+- Monitor network requests and responses
+- Inspect request headers, params, response codes
+- Check load times and transfer sizes
+- Filter requests by type (XHR, JS, CSS, etc.)
+- View detailed timing breakdown
