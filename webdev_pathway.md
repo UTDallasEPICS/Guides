@@ -315,10 +315,61 @@ app.listen(3000);
 
 ```
 GET /api/items - get items
-POST /api/items - create item
-PUT /api/items/1 - update item
-DELETE /api/items/1 - delete item
+POST /api/item - create item
+PUT /api/item/1 - update item with id 1
+DELETE /api/item/1 - delete item with id 1
 ```
+
+### Network calls using fetch
+
+Making a GET request:
+
+```js
+async function getMovies() {
+  const response = await fetch("http://example.com/movies.json");
+  const data = await response.json(); // this reads the body of the response into a JSON object
+
+  console.log(data);
+}
+
+getMovies();
+```
+
+Note that with GET requests, you _should not_ provide a request body. Pass information along in the query parameters, which the server can extract and use.
+
+````js
+async function getMovies() {
+
+  // Add query parameters
+  const queryParams = '?limit=10&genre=action';
+
+  const response = await fetch('http://example.com/movies.json' + queryParams);
+
+  const data = await response.json();
+
+  console.log(data);
+
+}
+
+getMovies();```
+
+Making a POST request:
+``` js
+async function addMovie() {
+  const response = await fetch('http://example.com/movies', {
+    method: 'POST',
+    body: JSON.stringify({title: 'Star Wars'}) // note that the body MUST be a string
+  });
+
+  const data = await response.json();
+
+  console.log(data);
+}
+
+addMovie();
+````
+
+DELETE and UPDATE requests work in the same way as POST.
 
 ## Use JS to interact with users
 
@@ -380,8 +431,11 @@ nameInput.addEventListener("input", () => {
 ## A simple Single Page Application with Vue
 
 TODO: compare/contrast event listeners + dom vs two way data binding
+
 TODO: need to go over project setup
+
 TODO: npm vs pnpm vs yarn
+
 `npm install vue@next pug typescript`
 
 ### App.vue
@@ -422,11 +476,198 @@ div
 
 You should be able to figure out how to use CSS to make the above examples look nice.
 
-## Adding a standalone server
+## Using a server & database
 
-## Using Nuxt to merge the server and the frontend
+### Prisma
+
+Prisma is an open-source ORM for Node.js and TypeScript. It provides a type-safe database client auto-generated from a data model. It also has features for managing the database schema and handling migrations.
+
+- Declarative data modeling using schema.prisma
+- Auto-generated and type-safe database client
+- Query building and validation
+- Database migrations
+- Works with all major databases
+
+### Express & H3
+
+H3 does have some provided database adapters, however we want to leverage Prisma's additional schema management features.
+
+### Example Prisma schema
+
+Key points:
+
+- The datasource block defines a PostgreSQL database connection.
+- The generator block specifies we want a Prisma Client JS library generated.
+- User model has name, email, and a relation to Todo items. id is generated with cuid().
+- Todo model has title, optional content, and a relation to User via the userId foreign key.
+- The @relation and @references directives establish the 1:M relationship between User and Todo.
+
+```prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+}
+
+model User {
+  id    String @id @default(cuid())
+  name  String
+  email String @unique
+  Todos Todo[] // one to many relationship: one user has many Todos
+}
+
+model Todo {
+  id     String @id @default(cuid())
+  title  String
+  content String?
+  userId String
+  User   User @relation(fields: [userId], references: [id]) // other side, many to one relationship: one Todo belongs to one User
+}
+```
+
+Corresponding class diagram
+
+```mermaid
+classDiagram
+
+class User {
+  +id: String
+  +name: String
+  +email: String
+  +todos: Todo[]
+}
+
+class Todo {
+  +id: String
+  +title: String
+  +content: String
+  +userId: String
+}
+
+User "1" --o "0..*" Todo : has
+Todo "0..*" --o "1" User : belongs to
+```
+
+### Example Express implementation
+
+```js
+// user routes elided for brevity
+const express = require("express");
+const { PrismaClient } = require("@prisma/client");
+
+const prisma = new PrismaClient();
+const app = express();
+
+app.use(express.json());
+
+// Create todo
+app.post("/todos", async (req, res) => {
+  const todo = await prisma.todo.create({
+    data: {
+      title: req.body.title,
+      content: req.body.content,
+      user: { connect: { id: req.body.userId } },
+    },
+  });
+  res.json(todo);
+});
+
+// Update todo
+app.put("/todos/:id", async (req, res) => {
+  const todo = await prisma.todo.update({
+    where: { id: req.params.id },
+    data: req.body,
+  });
+  res.json(todo);
+});
+
+// Get all todos
+app.get("/todos", async (req, res) => {
+  const todos = await prisma.todo.findMany();
+  res.json(todos);
+});
+
+// Get single todo
+app.get("/todos/:id", async (req, res) => {
+  const todo = await prisma.todo.findUnique({
+    where: { id: req.params.id },
+  });
+  res.json(todo);
+});
+
+app.listen(3000, () => {
+  console.log("Server started on http://localhost:3000");
+});
+```
+
+### Example H3 implementation
+
+```ts
+// user routes elided for brevity
+
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
+
+// Todo Routes
+
+app.post("/todos", async event => {
+  const body = await readBody(event);
+
+  return prisma.todo.create({
+    data: {
+      title: body.title,
+      content: body.content,
+      user: { connect: { id: body.userId } },
+    },
+  });
+});
+
+app.get("/todos", async () => {
+  return prisma.todo.findMany();
+});
+
+app.get("/todos/:id", async event => {
+  return prisma.todo.findUnique({
+    where: { id: event.params.id },
+  });
+});
+
+app.put("/todos/:id", async event => {
+  const body = await readBody(event);
+
+  return prisma.todo.update({
+    where: { id: event.params.id },
+    data: body,
+  });
+});
+
+app.delete("/todos/:id", async event => {
+  return prisma.todo.delete({
+    where: { id: event.params.id },
+  });
+});
+```
 
 # Databases
+
+A database is a structured collection of data stored in a computer system. Databases allow you to efficiently store, organize, and query large amounts of data.
+
+The data in a database is organized into tables, with rows representing individual records or items, and columns representing the attributes of each item. For example, a table storing customer data might have columns for name, address, phone number, etc.
+To retrieve or manipulate data in a database, you use a query language like SQL (Structured Query Language). SQL allows you to write queries to select specific data, filter rows, join tables, update records, and more. Non-technical users can interact with a database through a custom frontend application.
+
+There are two main types of database models:
+
+- SQL databases are relational databases, where data is structured in relations (tables) and data has relationships between tables. SQL databases use SQL and are optimized for complex queries. Examples are MySQL, Oracle, SQL Server.
+- NoSQL databases have flexible, non-tabular data models. They are optimized for scalability and high performance on large volumes of data. But they sacrifice some functionality of relational SQL models. Examples are MongoDB, Cassandra, Redis.
+
+SQL databases are better for complex queries, relationships between data, and data consistency. NoSQL is better for simplicity of design, handling big data, and flexibility. Most real-world systems use a mix of SQL and NoSQL databases as needed. For example, a SQL database to store core business data, and a NoSQL cache layer to quickly serve common queries.
+
+Generally speaking you will end up with an SQL server for your core schema, and Redis, Memcached, or some other key-value store for your caching layer, if you even need one - in some cases you don't need a database cache, you can simply write to static files use a CDN like Cloudfront or Fastly.
+
+You will almost never really need to reach for something like MongoDB outside of specific use cases that you will _not_ encounter at the scale of an EPICS project or even most business applications. Remember that business people can usually speak SQL, and their reporting tooling always does.
 
 # Browser Dev Tools
 
