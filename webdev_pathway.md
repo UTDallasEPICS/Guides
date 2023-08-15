@@ -11,6 +11,9 @@ https://www.theodinproject.com/paths/full-stack-javascript
 CSS for absolute beginners
 https://www.youtube.com/watch?v=yfoY53QXEnI
 
+Visual guide to CSS Selectors
+https://fffuel.co/css-selectors/
+
 JS Crash Course
 https://www.youtube.com/watch?v=hdI2bqOjy3c
 
@@ -607,10 +610,11 @@ app.listen(3000, () => {
 
 ```ts
 // user routes elided for brevity
-
+import { createApp } from "@h3/app";
+import { readBody } from "@h3/composables";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
-
+const app = createApp();
 // Todo Routes
 
 app.post("/todos", async event => {
