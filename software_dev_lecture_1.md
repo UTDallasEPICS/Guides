@@ -2,8 +2,14 @@
 
 # Dos & Donts
 
+# Time
+
 # Tooling
 
-# Software Architecture Overview
+# Network & Systems Architecture
 
-#
+# Software Architecture
+
+# Databases
+
+# Component Based UI

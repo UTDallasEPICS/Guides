@@ -290,6 +290,7 @@ server.listen(3000);
 
 - Express is a web framework for Node.js
 - Makes it easier to build web apps and APIs
+- H3 is a more modern HTTP framework
 
 ```js
 // Load express
@@ -433,11 +434,80 @@ nameInput.addEventListener("input", () => {
 
 ## A simple Single Page Application with Vue
 
-TODO: compare/contrast event listeners + dom vs two way data binding
+### Event listeners vs Two way data binding
+
+Vanilla JavaScript Event Listeners
+
+- Add event listeners directly to DOM elements to listen for events like click, change, keyup etc.
+- Need to manually update state and re-render UI on each event.
+- Example:
+  js
+  // Get input element
+  const input = document.getElementById('input');
+
+// Add change event listener
+input.addEventListener('change', (event) => {
+// Manually update state
+state.inputValue = event.target.value;
+
+// Re-render UI with new state
+renderInput();
+});
+
+function renderInput() {
+// Update input with state.inputValue
+}
+Vue Two-Way Data Binding
+
+- Declaratively bind data properties to DOM with v-model directive.
+- Reactivity system automatically detects changes and re-renders.
+- Example:
+  js
+  // In Vue component
+  data() {
+  return {
+  inputValue: ''
+  }
+  }
+
+// Template
+<input v-model="inputValue">
+
+- inputValue will automatically update and re-render when input changes without needing event listener.
+
+### npm/pnpm/yarn and package management
+
+// TODO: CLEANUP
+npm
+
+- Default package manager for Node.js
+- Stores all versions of packages in node_modules folder
+- Large storage footprint due to storing multiple copies of packages
+- package.json lists project dependencies and metadata
+- Run npm install to install dependencies from package.json
+  yarn
+- Alternative package manager developed by Facebook
+- Uses same package.json structure as npm
+- Installs packages faster than npm in some cases
+- More robust checksum security than npm
+- More emojis!
+  pnpm
+- Alternative package manager focused on efficiency
+- Uses a content-addressable storage model to avoid duplicate packages
+- Links duplicated packages together via hard links
+- Smaller storage footprint than npm
+- Faster installs than npm
+- Supports npm packages and package.json file
+  Package.json:
+- Defines app name, version, description
+- Lists project dependencies and versions
+- Can define scripts, config etc
+- Required for any Node.js project using a package manager
+- Running npm install or yarn will install all dependencies listed in package.json
+
+### Project setup
 
 TODO: need to go over project setup
-
-TODO: npm vs pnpm vs yarn
 
 `npm install vue@next pug typescript`
 
@@ -493,7 +563,11 @@ Prisma is an open-source ORM for Node.js and TypeScript. It provides a type-safe
 
 ### Express & H3
 
-H3 does have some provided database adapters, however we want to leverage Prisma's additional schema management features.
+Express and H3 are frameworks for setting up easy REST servers. They provide support for routing and utilities for reading data out of query parameters and request bodies, managing cookies, redirects, etc. They are both used in essentially the same way, but H3 provides a composable, functional interface vs the more OOP interface of Express. H3 is used by Nuxt under the hood as part of its file-based routing system.
+
+Both frameworks have extensive ecosystem support. H3 is aided by an easy interface for compatibility with Express oriented libraries.
+
+H3 and Express do have some provided database adapters, but we want to leverage Prisma's additional schema management features.
 
 ### Example Prisma schema
 
@@ -654,6 +728,10 @@ app.delete("/todos/:id", async event => {
   });
 });
 ```
+
+# Metaframeworks
+
+Metaframeworks (Next, Nuxt, SvelteKit, etc) combine a frontend framework and a backend framework in one overarching metaframework. Instead of managing a separate API and frontend, they live in the same codebase. This makes several things much more straightforward - you don't have to juggle types or utility functions that are used in both, you can do neat stuff with SSR/SSG, and some common boilerplate gets removed. For example, in Nuxt you can write an API call such that when a page using that API call is loaded, the server makes the API call before sending the page to the client - this means that the client doesn't have to wait for the page to load and then make the API call, so the user gets a better experience.
 
 # Databases
 
