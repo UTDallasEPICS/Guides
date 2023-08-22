@@ -1,4 +1,5 @@
 # Documentation References
+
 * [Markdown - Basic Syntax](https://www.markdownguide.org/basic-syntax/#overview)
 * [Markdown - Extended Syntax](https://www.markdownguide.org/extended-syntax/#overview)
 * [Mermaid Diagram Syntax](https://mermaid-js.github.io/mermaid/#/flowchart)

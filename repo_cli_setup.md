@@ -34,6 +34,6 @@ You should now be able to run `git clone`, `git pull`, etc.
 
 To clone a repository, use `git clone ssh://git@github.com/utdallasepics/<your repository name>`. If this is your first time cloning from GitHub, it will prompt you to accept the fingerprint of the remote host. You will need to type `yes`.
 
-# Setting up npm alias for pnpm
+## Setting up npm alias for pnpm
 
 In a WSL terminal, run `nano ~/.bashrc`. Navigate to the bottom of this file and add `alias npm="pnpm"`. This will automatically replace `npm` with `pnpm` whenever you execute `npm` in the terminal.
