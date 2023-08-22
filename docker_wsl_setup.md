@@ -1,4 +1,6 @@
-# What is Docker?
+# Docker an Windows Subsystem for Linux (WSL)
+
+## What is Docker?
 
 Docker allows us to run programs in isolation, as 'containers'. Think of them as lightweight versions of virtual machines, running only a few programs instead of EVERYTHING a normal computer does.
 
@@ -14,23 +16,23 @@ Volumes can be attached to multple containers simultaneously, allowing for examp
 
 For Mac and Linux, setting up Docker is straightforward. For students usng Windows machines, you will need to setup WSL - Windows Subsystem for Linux.
 
-# What is WSL?
+## What is WSL?
 
 WSL lets us easily run a Linux VM on Windows. We will use this both to allow Docker to run and to ensure a consistent development environment for everyone on a team.
 
 You will install Docker on your Windows system, but clone your code, install node, etc inside of a Linux VM running in WSL.
 
-# Pre-requisites
+## Pre-requisites
 
 - Know how to use a terminal (Powershell, Bash)
 
-# Notes
+## Notes
 
 - Instead of installing `Ubuntu-22.04`, you can try setting up DistroD instead
 - All of the Docker and WSL setup commands will be run in Windows
 - The Docker install instructions contain links in the Pre-requisites section - make sure to go through those too.
 
-# Links
+## Links
 
 [Docker & WSL Instructions](https://docs.docker.com/desktop/windows/wsl/)
 
