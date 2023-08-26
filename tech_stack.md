@@ -1,8 +1,10 @@
 # Tech stack options
 
-For web projects, use Nuxt for new projects. In some cases, we may need only a server - use Node with H3. If we only need an SPA, use Vue.
+For web projects, use Nuxt/Next for new projects. In some cases, we may need only a server - use Node with H3. If we only need an SPA, use Vue/React.
 
-For web project databases, you may choose between MySQL and Postgres. Either way, you will end up using Prisma for database schema management for web projects.
+For projects that use Nuxt/Next, you MUST use the built in server handling. Do NOT create a standalone server without mentor approval.
+
+For web project databases, you may choose between MySQL, Postgres, or SQLite. Either way, you will end up using Prisma for database schema management.
 
 We use AWS for our cloud infrastructure, unless there are partner specific requirements.
 
