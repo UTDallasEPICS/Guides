@@ -690,49 +690,66 @@ app.listen(3000, () => {
 
 ```ts
 // user routes elided for brevity
-import { createApp } from "@h3/app";
+import { createApp, eventHandler, toNodeListener } from "h3";
 import { readBody } from "@h3/composables";
 import { PrismaClient } from "@prisma/client";
+import { createServer } from "node:http";
 const prisma = new PrismaClient();
 const app = createApp();
 // Todo Routes
 
-app.post("/todos", async event => {
-  const body = await readBody(event);
+app.post(
+  "/todos",
+  eventHandler(async event => {
+    const body = await readBody(event);
 
-  return prisma.todo.create({
-    data: {
-      title: body.title,
-      content: body.content,
-      user: { connect: { id: body.userId } },
-    },
-  });
-});
+    return prisma.todo.create({
+      data: {
+        title: body.title,
+        content: body.content,
+        user: { connect: { id: body.userId } },
+      },
+    });
+  })
+);
 
-app.get("/todos", async () => {
-  return prisma.todo.findMany();
-});
+app.get(
+  "/todos",
+  eventHandler(async () => {
+    return prisma.todo.findMany();
+  })
+);
 
-app.get("/todos/:id", async event => {
-  return prisma.todo.findUnique({
-    where: { id: event.params.id },
-  });
-});
+app.get(
+  "/todos/:id",
+  eventHandler(async event => {
+    return prisma.todo.findUnique({
+      where: { id: event.params.id },
+    });
+  })
+);
 
-app.put("/todos/:id", async event => {
-  const body = await readBody(event);
+app.put(
+  "/todos/:id",
+  eventHandler(async event => {
+    const body = await readBody(event);
 
-  return prisma.todo.update({
-    where: { id: event.params.id },
-    data: body,
-  });
-});
+    return prisma.todo.update({
+      where: { id: event.params.id },
+      data: body,
+    });
+  })
+);
 
-app.delete("/todos/:id", async event => {
-  return prisma.todo.delete({
-    where: { id: event.params.id },
-  });
-});
+app.delete(
+  "/todos/:id",
+  eventHandler(async event => {
+    return prisma.todo.delete({
+      where: { id: event.params.id },
+    });
+  })
+);
+createServer(toNodeListener(app)).listen(3000);
 ```
 
 # Metaframeworks
