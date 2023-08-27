@@ -6,7 +6,13 @@
 - All PRs must link to issues that they close
 - Do not create your own repositories/forks
 - All projects with a database must use Prisma
+- All projects must use Github Projects for their project planning
 - Do NOT merge branches locally and then push them - push the branch and create a PR
 - All feature branches must stay updated
 - Do NOT commit node_modules - make sure .gitignore is properly configured. Most scaffolds should handle this automatically.
 - Branches, PRs, and issues are reviewed as part of the mid semester and final presentations.
+- Web dev repositories must have a `docker-compose` file that includes at minimum a database
+- Web dev repositories must use either docker or pm2 for running server processes
+- Repository authentication is either through logging in via VSCode or through SSH
+- Server authentication is done through SSH
+- Keys must use ED25519

@@ -443,34 +443,38 @@ Vanilla JavaScript Event Listeners
 - Add event listeners directly to DOM elements to listen for events like click, change, keyup etc.
 - Need to manually update state and re-render UI on each event.
 - Example:
-  js
-  // Get input element
-  const input = document.getElementById('input');
+
+```js
+// Get input element
+const input = document.getElementById("input");
 
 // Add change event listener
-input.addEventListener('change', (event) => {
-// Manually update state
-state.inputValue = event.target.value;
+input.addEventListener("change", event => {
+  // Manually update state
+  state.inputValue = event.target.value;
 
-// Re-render UI with new state
-renderInput();
+  // Re-render UI with new state
+  renderInput();
 });
 
 function renderInput() {
-// Update input with state.inputValue
+  // Update input with state.inputValue
 }
+```
+
 Vue Two-Way Data Binding
 
 - Declaratively bind data properties to DOM with v-model directive.
 - Reactivity system automatically detects changes and re-renders.
 - Example:
-  js
+  ````js
   // In Vue component
   data() {
-  return {
-  inputValue: ''
-  }
-  }
+    return {
+      inputValue: ''
+    }
+  }```
+  ````
 
 // Template
 <input v-model="inputValue">
@@ -522,7 +526,7 @@ import LearningExamples from "./components/LearningExamples.vue";
 
 <template lang="pug">
 #app
-  LearningExamples  
+  LearningExamples
 </template>
 ```
 
