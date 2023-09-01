@@ -84,7 +84,7 @@
   * contains key/value pairs defining the project's required environment variables
   * In this file we set a variable with value and that you wouldn’t want to share with anyone, purpose of file is keep as secret and secure because in .env file we store our database password, username, API key etc…
   * [example](https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c)
-    * can use these variables in your Node JS porject
+    * can use these variables in your Node JS project
 
 * dot dockerignore
   * Ignores files to speed up docker build process

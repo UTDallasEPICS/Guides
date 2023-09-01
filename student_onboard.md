@@ -1,3 +1,4 @@
+
 # Initial Student Onboarding (2 weeks)
 
 - GitHub Survey
@@ -5,30 +6,30 @@
 - Skills Overview Survey
 - Dev environment setup
 
-# Project Planning & Initial Design (3 weeks)
+## Project Planning & Initial Design (3 weeks)
 
-## New Project
+### New Projects
 
-### Requirements Collection
+#### Requirements Collection
 
 - Conceptual Overview (Readme.md)
 - Partner Docs Acquisition
 
-### Project Planning
+#### Project Planning
 
 - Initial Prisma Schema
 - Initial Figma UI (link in Readme.md)
 - Semester Project Plan (issues, GH Project)
 - Start coding
 
-## Existing Project
+### Existing Project
 
-### Requirements Collection
+#### Requirements Collection
 
 - Review Docs
 - Review System
 
-### Project Planning
+#### Project Planning
 
 - Semester Project Plan (issues, GH Project)
 - Start coding

@@ -1,6 +1,6 @@
 # Databases
 
-## Postgresql & MySQL
+## PostgreSQL & MySQL
 
 ## MongoDB
 
