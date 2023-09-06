@@ -37,3 +37,10 @@ You will install Docker on your Windows system, but clone your code, install nod
 [Docker & WSL Instructions](https://docs.docker.com/desktop/windows/wsl/)
 
 [Distrod](https://github.com/nullpo-head/wsl-distrod)
+
+## Workflow notes
+
+- You will always start the WSL instance
+- Once in the instnace, you will `cd` to where you cloned the repo, and from there use `code .` to launch vscode
+- vscode _should_ use bash for its terminals - if not then you will need another WSL terminal
+- all commands (docker, node, npm, git) must be run in the repo folder in your WSL instance
