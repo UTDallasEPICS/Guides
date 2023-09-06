@@ -1,15 +1,33 @@
-# Tech stack options
+# Tech Stack Options
 
-For web projects, use Nuxt/Next for new projects. In some cases, we may need only a server - use Node with H3. If we only need an SPA, use Vue/React.
+## Web Projects
 
-For projects that use Nuxt/Next, you MUST use the built in server handling. Do NOT create a standalone server without mentor approval.
+### Full-Stack Applications
 
-For web project databases, you may choose between MySQL, Postgres, or SQLite. Either way, you will end up using Prisma for database schema management.
+Full-Stack applications consist of a frontend, backend, and database. This is what most EPICS projects end up being. We recommend using [Jamstack frameworks](https://jamstack.org). Jamstack frameworks combine the frontend and backend of web apps into a single cohesive system. This allows you to more easily connect components of your code and also makes, development, building, and deployment simpler.
 
-We use AWS for our cloud infrastructure, unless there are partner specific requirements.
+[Nuxt](https://nuxt.com) (based on React) and [Next.js](https://nextjs.org) (based on Vue.js) are ***highly*** recommended for new full-stack projects. Projects that use Nuxt/Next, should use build in server handling. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first. Other alternatives would be to use a frontend framework combined with a back-end framework (e.g. React frontend with express.js backend). These options generally complicate the project and are not recommended.
 
-We use docker containers for running infrastructure locally.
+### Back-End Only Projects
 
-Students using Windows as their personal machine will need to setup WSL.
+In some cases, we may need only a backend server. These are generally projects where you are creating an API or performing data processing. [Node](https://nodejs.org) with [H3](https://github.com/unjs/h3) is highly recommended.
 
-For non-web projects, tech stack is likely to be defined by the partner needs - we don't have many of these in the first place, so we don't have a good standard system yet.
+### Single-Page Applications (SPA)
+
+If we only need a single-page application (SPA) [Vue.js](https://vuejs.org) or [React](https://react.dev) are recommended. There are many front-end frameworks, but these are by far the most popular (for good reason).
+
+### Databases
+
+For web project databases, you may should choose an SQL database ([MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org), or [SQLite](https://www.sqlite.org/index.html)). Though [MongoDB](https://www.mongodb.com) is popular, it is not optimal for most EPICS projects due to unstructured nature of the database. If you believe MongoDB is a good fit for your project, speak with your mentor. Either way, [Prisma](https://www.prisma.io) is highly recommended for database schema management. Prisma makes it much easier to define and understand how your database is set up and is compatible with all major databases.
+
+### Environment
+
+We use [docker](https://www.docker.com) containers for running infrastructure locally (databases at a minimum). Students using Windows as their personal machine will need to setup [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+### Deployment
+
+We use [Amazon Web Services (AWS)](https://aws.amazon.com) for our cloud infrastructure, unless there are partner specific requirements.
+
+## Non-Web Projects
+
+For non-web projects, tech stack is likely to be defined by the partner needs - we don't have many of these in the first place, so we don't have a good standard system yet. In the past, Python has been used for local GUIs that can also connect to hardware.

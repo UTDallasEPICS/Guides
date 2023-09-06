@@ -23,7 +23,9 @@ These videos cover the following 5 topics:
 
 These documents go into more specific detail about various processes, tools, and frameworks that will be useful for web app development.
 
+* [Tech Stack Recommendations](https://github.com/UTDallasEPICS/Guides/blob/main/tech_stack.md)
 * [Web Development Pathway](https://github.com/UTDallasEPICS/Guides/blob/main/webdev_pathway.md)
+* [General Policies and Recommendations](https://github.com/UTDallasEPICS/Guides/blob/main/policies.md)
 * [Node.js](https://github.com/UTDallasEPICS/Guides/blob/main/node_nvm_npm_pnpm.md)
 * [Node.js Files Explained](https://github.com/UTDallasEPICS/Guides/blob/main/files.md)
 * [Express.js](https://github.com/UTDallasEPICS/Guides/blob/main/express.md)
@@ -32,4 +34,3 @@ These documents go into more specific detail about various processes, tools, and
 * [Docker and Windows Subsystem for Linux](https://github.com/UTDallasEPICS/Guides/blob/main/docker_wsl_setup.md)
 * [Documentation Tools](https://github.com/UTDallasEPICS/Guides/blob/main/documentation_tools.md)
 * [Example README.md](https://github.com/UTDallasEPICS/Guides/blob/main/example_readme.md)
-* [Example Tech Stack](https://github.com/UTDallasEPICS/Guides/blob/main/tech_stack.md)
