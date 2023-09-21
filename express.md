@@ -2,8 +2,8 @@
 
 ## [Express Routes and Controllers](https://developer.mozilla.org/en-US/docs/Learn/Server-side/*Express_Nodejs/routes)
 
-![](https://i.imgur.com/0brzKNe.png)
-![](https://i.imgur.com/VZdyPL5.png)
+![Express Model](https://i.imgur.com/0brzKNe.png)
+![Middleware Diagram](https://i.imgur.com/VZdyPL5.png)
 
 * [Model View Controller (MVC) Design](https://stackoverflow.com/questions/11066958/in-the-model-view-controller-principle-what-is-the-frontend-and-what-is-the-bac)
 * [Controller vs Middleware](https://stackoverflow.com/questions/57274465/whats-the-difference-between-a-controller-and-a-middleware)
@@ -11,7 +11,7 @@
 
 * Routing refers to how an application’s endpoints (URIs) respond to client requests
   * forwards the supported requests to appropriate controller functions
-* Middleware is code that examines an incomming request and prepares it for further processing
+* Middleware is code that examines an incoming request and prepares it for further processing
 * Controller functions to get the requested data from the models, create an HTML page displaying the data, and return it to the user to view in the browser
 * Views used by the controllers to render the data.
 * [URI vs URL](https://danielmiessler.com/study/difference-between-uri-url/)
@@ -32,7 +32,7 @@
 * works with MongoDB database
   * uses Mongoose ODM (Object Data Modeling) library for  MongoDB and Node. js
 * Role based Authorization
-  * employee users can signup, signin
+  * employee users can sign up, sign in
   * public page to sign in
 
 ## server.js
@@ -47,14 +47,14 @@
       * Requests has an Origin header to request message
         * browser allows request to server on same origin
         * if request goes to different URL - is a cross-origin request
-          * server will add Access-Control-Allow-Origin header to responce
+          * server will add Access-Control-Allow-Origin header to response
             * its value needs to match the origin header
-    * Express CORS middleware to respond with the proper CORS header on every responce
+    * Express CORS middleware to respond with the proper CORS header on every response
 * [express.json and express.urlencoded](https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded)
   * DO NOT NEED `express.json()` and `express.urlencoded()` for GET Requests or DELETE Requests
   * For POST and PUT requests, because in both these requests you are sending data (in the form of some data object) to the server and you are asking the server to accept or store that data (object), which is enclosed in the body (i.e. req.body) of that (POST or PUT) Request
   * `bodyParser.json`
-    * returns middleware that only parses incomming JSON requests and puts the parsed data in req.body
+    * returns middleware that only parses incoming JSON requests and puts the parsed data in req.body
     * recognize the incoming Request Object as a JSON Object
     * POST requests
   * `bodyParser.urlencoded({extended: ...})`
