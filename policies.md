@@ -20,7 +20,7 @@ These are general policies to follow when working on your projects.
 
 - Web dev repositories must use either docker or pm2 for running server processes
 - Databases should be instantiated using a `docker-compose` file
-- [Prisma](https://www.prisma.io) is ***highly*** recommended for use with all new projects involving a database
+- [Prisma](https://www.prisma.io) is **_highly_** recommended for use with all new projects involving a database
 
 ## Other
 
