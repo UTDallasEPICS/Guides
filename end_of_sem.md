@@ -1,6 +1,6 @@
 # End of Semester Requirements
 
-The following checklists are what is required for your code to be considered acceptable at the end of the semester. The general purpose is to ensure that someone can run your code without encountering any errors and everything the next team needs will be easy to find.***If your project cannot be run based on the information and files on GitHub, your final project grade will be greatly reduced and/or your team will receive an incomplete until the information needed to run your project is provided!***
+The following checklists are what is required for your code to be considered acceptable at the end of the semester. The general purpose is to ensure that someone can run your code without encountering any errors and everything the next team needs will be easy to find. ***If your project cannot be run based on the information and files on GitHub, your final project grade will be greatly reduced and/or your team will receive an incomplete until the information needed to run your project is provided!***
 
 One potential way to make it easy to track all of these tasks is to create issues for each of the required tasks ([see this page about GitHub issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/quickstart#adding-a-task-list)). The first item in the [Project Structure/Files](#project-structurefiles) section would look something like this to automatically check the box when issue 3 is closed:
 
