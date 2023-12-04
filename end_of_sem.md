@@ -25,7 +25,7 @@ These requirements must be met (in the main branch of your project) by the time 
 
 ## Documentation
 
-A README.md file at the top level containing:
+A README.md file at the top level containing the following:
 
 - [ ] Conceptual overview - what is the project intended to accomplish?
   - Include a broad description of the different types of users/roles and what they do.
@@ -40,7 +40,7 @@ A README.md file at the top level containing:
   - Other tools used/needed (such as Postman)
 - [ ] Deployment notes (if project is currently or in the process of being deployed) - is the partner running the application on their own servers or are they using something like AWS or Azure?
 - [ ] Migration scripts - do we need to import any data from an existing system that the partner is using?
-- [ ] ***Instructions for setting up the development environment!!!***
+- [ ] ***Instructions for setting up the development environment!!!*** Assume that the needed software is already installed (Node.js, Docker, etc.).
   - How do you start your project?
   - How do you initialize the database?
   - How do you set up authentication?
