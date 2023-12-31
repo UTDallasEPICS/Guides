@@ -1,0 +1,2 @@
+- [The loss of innocence is the price of applause](http://www.thecodelesscode.com/case/195)
+- [On code and comments](http://thecodelesscode.com/case/39)

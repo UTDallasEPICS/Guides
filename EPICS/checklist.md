@@ -15,7 +15,6 @@ A README.md file at the top level containing:
 - [ ] Conceptual overview - what is the project intended to accomplish?
 - [ ] Functional requirements (broken down by page) - what are the discrete operations the app needs to be capable of?
 - [ ] Third party integrations - do we need to touch HubSpot? Stripe? Auth0?
-- [ ] Tech stack - Nuxt? Next? Postgres? MySQL?
 - [ ] Deployment notes - is the partner running the application on their own servers or are they using something like AWS or Azure?
 - [ ] Migration scripts - do we need to import any data from an existing system that the partner is using?
 - [ ] Instructions for project setup

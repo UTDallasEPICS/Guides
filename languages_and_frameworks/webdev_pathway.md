@@ -311,6 +311,45 @@ app.get("/api/items", (req, res) => {
 app.listen(3000);
 ```
 
+### Async/Await & Promises
+
+The Promise API and async/await are both features in JavaScript that help handle asynchronous operations. They are used to write cleaner and more readable code when dealing with asynchronous tasks like making network requests or handling database operations.
+
+The Promise API is a way to handle asynchronous operations using a chain of methods, such as .then() and .catch(). Here's an example:
+
+```js
+fetch("https://api.example.com/data")
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.log(error));
+```
+
+In this example, we use the fetch() function to make a network request to retrieve data from an API. The .then() method is used to handle the response and extract the JSON data. The second .then() method is used to log the data to the console. If an error occurs during the request, the .catch() method is used to handle and log the error.
+
+On the other hand, async/await is a more modern approach to handle asynchronous operations in JavaScript. It allows you to write asynchronous code that looks and behaves more like synchronous code. Here's an example:
+
+```js
+async function fetchData() {
+  try {
+    const response = await fetch("https://api.example.com/data");
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchData();
+```
+
+In this example, we define an async function called fetchData() that uses the await keyword to pause the execution until the promise is resolved or rejected. The try block is used to wrap the code that may throw an error, and the catch block is used to handle any errors that occur during the execution.
+
+Comparing the two approaches, async/await offers a more concise and readable way to write asynchronous code. It eliminates the need for a long chain of .then() methods, making the code easier to understand and maintain. Additionally, async/await allows you to handle errors using a more familiar try-catch syntax, which makes error handling more straightforward.
+
+However, it's important to note that async/await is built on top of the Promise API. Under the hood, async/await still uses promises, so they are not completely different concepts but rather a different way of using promises.
+
+Also note that you can only use the await keyword inside of an async function, although there are some special cases where await can be used at the top level of a file (i.e. not inside of an async function).
+
 ### REST APIs
 
 - REST APIs provide data via HTTP endpoints
@@ -483,7 +522,6 @@ Vue Two-Way Data Binding
 
 ### npm/pnpm/yarn and package management
 
-// TODO: CLEANUP
 npm
 
 - Default package manager for Node.js
@@ -519,37 +557,31 @@ TODO: need to go over project setup
 
 ### App.vue
 
-```vue
+```html
 <script setup lang="ts">
-import LearningExamples from "./components/LearningExamples.vue";
+  import LearningExamples from "./components/LearningExamples.vue";
 </script>
 
-<template lang="pug">
-#app
-  LearningExamples
-</template>
+<template lang="pug"> #app LearningExamples </template>
 ```
 
 ### LearningExamples.vue
 
-```vue
+```html
 <script setup lang="ts">
-import { ref } from "vue";
+  import { ref } from "vue";
 
-const counter = ref<number>(0);
-const name = ref<string>("");
+  const counter = ref<number>(0);
+  const name = ref<string>("");
 
-const increment = () => {
-  counter.value++;
-};
+  const increment = () => {
+    counter.value++;
+  };
 </script>
 
 <template lang="pug">
-div 
-  button(@click="increment") Increment
-  input(v-model="name")
-  p Counter: {{ counter }}
-  p Name: {{ name }}  
+  div button(@click="increment") Increment input(v-model="name") p Counter: {{
+  counter }} p Name: {{ name }}
 </template>
 ```
 

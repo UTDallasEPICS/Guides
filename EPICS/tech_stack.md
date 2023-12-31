@@ -6,7 +6,7 @@
 
 Full-Stack applications consist of a frontend, backend, and database. This is what most EPICS projects end up being. We recommend using [Jamstack frameworks](https://jamstack.org). Jamstack frameworks combine the frontend and backend of web apps into a single cohesive system. This allows you to more easily connect components of your code and also makes, development, building, and deployment simpler.
 
-[Nuxt](https://nuxt.com) (based on React) and [Next.js](https://nextjs.org) (based on Vue.js) are ***highly*** recommended for new full-stack projects. Projects that use Nuxt/Next, should use build in server handling. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first. Other alternatives would be to use a frontend framework combined with a back-end framework (e.g. React frontend with express.js backend). These options generally complicate the project and are not recommended.
+[Nuxt](https://nuxt.com) (based on React) and [Next.js](https://nextjs.org) (based on Vue.js) are **_highly_** recommended for new full-stack projects. Projects that use Nuxt/Next, should use build in server handling. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first. Other alternatives would be to use a frontend framework combined with a back-end framework (e.g. React frontend with express.js backend). These options generally complicate the project and are not recommended.
 
 ### Back-End Only Projects
 
@@ -22,7 +22,7 @@ For web project databases, you may should choose an SQL database ([MySQL](https:
 
 ### Environment
 
-We use [docker](https://www.docker.com) containers for running infrastructure locally (databases at a minimum). Students using Windows as their personal machine will need to setup [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
+We use [docker](https://www.docker.com) containers for running infrastructure locally (databases at a minimum, excluding SQLite). Students using Windows as their personal machine will need to setup [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ### Deployment
 
