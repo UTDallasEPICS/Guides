@@ -8,3 +8,5 @@
 - [Vue Language Features (Volar)](https://open-vsx.org/extension/Vue/volar)
 - [Prettier - Code Formatter](https://open-vsx.org/extension/esbenp/prettier-vscode)
 - [HTML CSS Support](https://open-vsx.org/extension/ecmel/vscode-html-css)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
