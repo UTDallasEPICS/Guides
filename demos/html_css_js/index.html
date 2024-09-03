@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML, CSS, and JS Demo</title>
+  <style>
+    /* Background and font color examples */
+    body {
+      background-color: #f0f8ff;
+      color: #333;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Animation example */
+    @keyframes slideIn {
+      from {
+        margin-left: 100%;
+        width: 300%;
+      }
+
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 2s ease-in-out;
+    }
+
+    /* Button and counter example */
+    .counter {
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    .increment-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .increment-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Class and ID usage */
+    .highlight {
+      background-color: #ff0;
+      color: #000;
+    }
+
+    #special-text {
+      color: #ff0000;
+      font-weight: bold;
+    }
+
+    /* Flexbox examples */
+    .flex-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .flex-item {
+      background-color: #4caf50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    /* Grid example */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-item {
+      background-color: #ff5722;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Capitalize Text Section */
+    .capitalize-container {
+      margin: 20px 0;
+      padding: 10px;
+    }
+
+    .capitalize-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .capitalize-btn:hover {
+      background-color: #218838;
+    }
+
+    @media only screen and (min-width: 400px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flex-container {
+        flex-direction: row;
+      }
+    }
+
+    @media only screen and (min-width: 800px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to HTML, CSS, and JS Demo!</h1>
+  <p id="special-text">This is a demonstration of basic concepts.</p>
+  <p class="highlight">Highlighted text using a CSS class.</p>
+  <p style="font-size: 40px;">Big text using style attribute.</p>
+
+  <!-- Button that increments a counter -->
+  <div class="counter-container">
+    <p class="counter">Counter: <span id="counter-value">0</span></p>
+    <button class="increment-btn" onclick="incrementCounter()">Increment Counter</button>
+  </div>
+
+  <!-- Capitalize Text Example -->
+  <div class="capitalize-container">
+    <input type="text" id="text-input" placeholder="Enter text here">
+    <button class="capitalize-btn" onclick="capitalizeText()">Capitalize Text</button>
+    <p id="capitalized-result"></p>
+  </div>
+
+  <!-- Animation example -->
+  <div class="animated-box slide-in">
+    <p>This box slides in from the right using CSS animations.</p>
+  </div>
+
+  <!-- Flexbox example -->
+  <div class="flex-container">
+    <div class="flex-item">Flex Item 1</div>
+    <div class="flex-item">Flex Item 2</div>
+    <div class="flex-item">Flex Item 3</div>
+  </div>
+
+  <!-- Grid example -->
+  <div class="grid-container">
+    <div class="grid-item">Grid Item 1</div>
+    <div class="grid-item">Grid Item 2</div>
+    <div class="grid-item">Grid Item 3</div>
+    <div class="grid-item">Grid Item 4</div>
+    <div class="grid-item">Grid Item 5</div>
+    <div class="grid-item">Grid Item 6</div>
+  </div>
+
+  <script>
+    // JavaScript to handle the button click and increment the counter
+    let counter = 0;
+    function incrementCounter() {
+      counter++;
+      document.getElementById('counter-value').innerText = counter;
+    }
+
+    // JavaScript to capitalize text and display it
+    function capitalizeText() {
+      const textInput = document.getElementById('text-input').value;
+      const capitalizedText = textInput.toUpperCase();
+      document.getElementById('capitalized-result').innerText = capitalizedText;
+    }
+  </script>
+</body>
+
+</html>
