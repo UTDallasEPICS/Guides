@@ -1,0 +1,140 @@
+<!-- File: Repos/guides/demos/servers/public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .todo-list {
+      margin-top: 20px;
+    }
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .form-input {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Todo App</h1>
+  <div>
+    <label for="todo-title">Title: </label>
+    <input type="text" id="todo-title" class="form-input">
+    <label for="todo-content">Content: </label>
+    <input type="text" id="todo-content" class="form-input">
+    <button id="add-todo" onclick="addTodo()">Add Todo</button>
+  </div>
+  <div class="todo-list" id="todo-list">
+    <!-- Todo items will be appended here -->
+  </div>
+
+  <script>
+    // get references to the UI elements
+    const todoList = document.getElementById("todo-list");
+    const addTodoButton = document.getElementById("add-todo");
+
+    const fetchTodos = async () => {
+      try {
+        const response = await fetch("/todos");
+        const todos = await response.json();
+        // clear the contents of the list before we append new items
+        todoList.innerHTML = "";
+        todos.forEach(todo => {
+          const todoItem = document.createElement("div");
+          todoItem.className = "todo-item";
+          todoItem.innerHTML = `
+              <span>${todo.title}: ${todo.content}</span>
+              <div class="todo-actions">
+                <button onclick="updateTodoPrompt('${todo.id}')">Update</button>
+                <button onclick="deleteTodo('${todo.id}')">Delete</button>
+              </div>
+            `;
+          todoList.appendChild(todoItem);
+        });
+      } catch (error) {
+        console.error("Failed to fetch todos:", error);
+      }
+    };
+
+    const addTodo = async () => {
+      const title = document.getElementById("todo-title").value;
+      const content = document.getElementById("todo-content").value;
+
+      try {
+        await fetch("/todos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ title, content })
+        });
+        // clear the form after adding
+        document.getElementById("todo-title").value = '';
+        document.getElementById("todo-content").value = '';
+        fetchTodos();
+      } catch (error) {
+        console.error("Failed to add todo:", error);
+      }
+    };
+
+    const updateTodoPrompt = async (id) => {
+      // in a normal UI you wouldn't be using prompt like this,
+      // you would have an actually nice form that displays the existing values
+      // but its a demo so :shrug:
+      // note that functions like prompt and alert take over the window, which 
+      // is very much bad UX and can be disruptive to the user experience.
+      const title = prompt("Enter new title:");
+      const content = prompt("Enter new content:");
+
+      if (title && content) {
+        updateTodo(id, title, content);
+      }
+    };
+
+    const updateTodo = async (id, title, content) => {
+      try {
+        await fetch(`/todos/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ title, content })
+        });
+        fetchTodos();
+      } catch (error) {
+        console.error("Failed to update todo:", error);
+      }
+    };
+
+    const deleteTodo = async (id) => {
+      try {
+        await fetch(`/todos/${id}`, {
+          method: "DELETE"
+        });
+        fetchTodos();
+      } catch (error) {
+        console.error("Failed to delete todo:", error);
+      }
+    };
+    // wait for the browser to finish loading the page content
+    document.addEventListener("DOMContentLoaded", () => {
+      fetchTodos();
+    });
+  </script>
+</body>
+
+</html>
