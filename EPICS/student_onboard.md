@@ -1,4 +1,3 @@
-
 # Initial Student Onboarding (2 weeks)
 
 - GitHub Survey
@@ -33,3 +32,9 @@
 
 - Semester Project Plan (issues, GH Project)
 - Start coding
+
+## Project Wrapup (last 2 weeks)
+
+- finish current tasks
+- update issues and readme
+- end of semester checklist
