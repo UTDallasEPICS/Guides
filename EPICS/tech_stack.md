@@ -8,6 +8,7 @@ Full-Stack applications consist of a frontend, backend, and database. This is wh
 
 [Nuxt](https://nuxt.com) (based on React) or [Next.js](https://nextjs.org) (based on Vue.js) are required for new full-stack projects. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first.
 
+
 ### Back-End Only Projects
 
 In some cases, we may need only a backend server. These are generally projects where you are creating an API or performing data processing. [Node](https://nodejs.org) with [H3](https://github.com/unjs/h3) is highly recommended.

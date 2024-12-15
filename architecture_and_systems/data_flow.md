@@ -236,3 +236,6 @@ def post_data():
 ```
 
 For more information on making requests in Python, see the [requests documentation.](https://requests.readthedocs.io/en/latest/)
+
+## Structure of an URL
+![image](https://github.com/UTDallasEPICS/Guides/assets/35643616/8156653c-3f4c-4c1a-8d57-ddbc267aa608)
