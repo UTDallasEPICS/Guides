@@ -1,6 +1,6 @@
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-// TODO: db file
+
 const prisma = new PrismaClient();
 const app = express();
 const path = require("path");

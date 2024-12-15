@@ -4,9 +4,9 @@
 
 ### Full-Stack Applications
 
-Full-Stack applications consist of a frontend, backend, and database. This is what most EPICS projects end up being. We recommend using [Jamstack frameworks](https://jamstack.org). Jamstack frameworks combine the frontend and backend of web apps into a single cohesive system. This allows you to more easily connect components of your code and also makes, development, building, and deployment simpler.
+Full-Stack applications consist of a frontend, backend, and database. This is what most EPICS projects end up being. We use JavaScript metaframeworks, which integrate backend and frontend functionality into one codebase.
 
-[Nuxt](https://nuxt.com) (based on React) and [Next.js](https://nextjs.org) (based on Vue.js) are **_highly_** recommended for new full-stack projects. Projects that use Nuxt/Next, should use build in server handling. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first. Other alternatives would be to use a frontend framework combined with a back-end framework (e.g. React frontend with express.js backend). These options generally complicate the project and are not recommended.
+[Nuxt](https://nuxt.com) (based on React) or [Next.js](https://nextjs.org) (based on Vue.js) are required for new full-stack projects. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first.
 
 ### Back-End Only Projects
 

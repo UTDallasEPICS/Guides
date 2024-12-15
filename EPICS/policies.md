@@ -19,9 +19,8 @@ These are general policies to follow when working on your projects.
 
 ## Development Stack
 
-- Web dev repositories must use either docker or pm2 for running server processes
 - Databases should be instantiated using a `docker-compose` file (unless the project is using SQLite)
-- [Prisma](https://www.prisma.io) is **_highly_** recommended for use with all new projects involving a database
+- [Prisma](https://www.prisma.io) is required for use with all new projects involving a database
 
 ## Other
 
@@ -30,7 +29,7 @@ These are general policies to follow when working on your projects.
 - SSH should be ED25519 (smaller, faster, and more secure than default)
 - Avoid the use of large UI frameworks. Use something lightweight and functionality oriented like Headless UI or just build the component yourself.
 - Students use LLMs at their own risk. They are ultimately responsible for the code they submit. If they can't verify the correctness of the code, they should be writing it themselves. Submitting output from an LLM that is incorrect is worse than incorrect code they wrote themselves. It is strongly recommended that students NOT attempt to use tools that they don't understand to generate code that they don't understand.
-- Students MUST NOT create their own repositories. Points will be deducted for doing so.
+- Students MUST NOT create their own repositories.
 - Students are responsible for learning how to use the tools. No one should be asking how to make a commit or push a branch at the end of the semester.
 - Branches should be specific to an issue. Students should not be copy/pasting code between each others branches because it can complicate PRs and cause conflicts if not done correctly. Students should properly track which tasks are dependencies of other tasks, plan their timelines and work appropriately, and merge work into their dev as needed.
 - Students should NOT be pushing up multiple versions of a branch with suffixes such as '-v2'. If a student has new work for a branch, they should just update that branch. If they have work for a different feature that depends on that branch, they should create a new branch off of the old branch with a new name and issue reference, and reference the old branch in the PR.

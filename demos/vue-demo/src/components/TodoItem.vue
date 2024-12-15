@@ -1,17 +1,22 @@
 <template>
-  <div class="item">
+  <div class="item" @click="emit('select', props.id)">
     <i>
-      <slot name="icon"></slot>
+      {{ title }}
     </i>
     <div class="details">
-      <h3>
-        <slot name="heading"></slot>
-      </h3>
       <slot></slot>
     </div>
   </div>
 </template>
-
+<script setup lang="ts">
+// these props are *required* because they dont have ? 
+// e.g.id: string ? would indicate id is an optional prop;
+const props = defineProps<{ title: string; id: string; }>();
+const emit = defineEmits<{
+  // event type, event data (can support multiple data arguments)
+  (e: 'select', id: string): void;
+}>();
+</script>
 <style scoped>
 .item {
   margin-top: 2rem;
@@ -34,12 +39,6 @@ i {
   color: var(--color-text);
 }
 
-h3 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: var(--color-heading);
-}
 
 @media (min-width: 1024px) {
   .item {
