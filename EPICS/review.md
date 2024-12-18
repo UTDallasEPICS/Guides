@@ -21,10 +21,20 @@ Discourage overly nested structures and long file/folder names. The above exampl
 Need to be handled via .env. We should not be hard coding something like
 
 ```js
-const res = await fetch("https://127.0.0.1:5000");
+const res = await fetch("https://127.0.0.1:5000/api/endpoint");
 ```
 
-as this is _not_ a portable way to define API endpoints.
+as this is _not_ a portable way to define API endpoints. Instead,
+
+```js
+const res = await fetch(import.meta.env.API_URL + "/api/endpoint");
+```
+
+However, if we are making a request to our own API, we do not have specify a domain at all as our Nuxt/Next projects all run on the same domain. We can simply do
+
+```js
+const res = await fetch("/api/endpoint");
+```
 
 Secrets (even not-secret things like frontend API keys) must also be handled with .env so that we do not have to rewrite code to change which API keys are used.
 
@@ -44,11 +54,11 @@ Secrets (even not-secret things like frontend API keys) must also be handled wit
     - Componentization of UI: using components to cut down on code duplication, with proper usage of props and events to send and receive information.
     - components with large component trees may need to use a pinia store to minimize prop drilling (where a prop is passed many times down through the component tree).
 
-### common student patterns
+### common patterns
 
     - components with duplicate functionality should try to use composables (not expected to be very common)
     - Components are used to unify styling of semantic elements, such as labels and buttons.
-    - Usage of top level App component to hold universal UI elements such as navbars, notifications, etc instead of duplicating that code on every page.
+    - Putting universal components everywhere instead of using the top level App component, e.g. navbars, notifications, etc are copied to every page instead of only existing once in the top level App or layout component.
     - API routes are named with proper semantics and formatting (e.g. user.get.ts (nuxt) or user.ts (next) instead of getUser.get.ts, users.get.ts for bulk operations)
     - database clients should either be implemented in middleware (`event.context.client` in Nuxt) or as an export from a `db.ts` file and NOT imported & instantiated in every route handler because otherwise we end up with a ton of database connections.
     - Do not use the native date input as it does not nicely handle timezones in its output. Use a datepicker library that outputs an ISO string in UTC. Complicated browser controls are also often difficult to style nicely, with pseudoelements that are not the same across all browsers.
