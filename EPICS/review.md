@@ -51,66 +51,66 @@ Secrets (even not-secret things like frontend API keys) must also be handled wit
 
 ## Application Structure
 
-    - Componentization of UI: using components to cut down on code duplication, with proper usage of props and events to send and receive information.
-    - components with large component trees may need to use a pinia store to minimize prop drilling (where a prop is passed many times down through the component tree).
+  - Componentization of UI: using components to cut down on code duplication, with proper usage of props and events to send and receive information.
+  - components with large component trees may need to use a pinia store to minimize prop drilling (where a prop is passed many times down through the component tree).
 
 ### common patterns
 
-    - components with duplicate functionality should try to use composables (not expected to be very common)
-    - Components are used to unify styling of semantic elements, such as labels and buttons.
-    - Putting universal components everywhere instead of using the top level App component, e.g. navbars, notifications, etc are copied to every page instead of only existing once in the top level App or layout component.
-    - API routes are named with proper semantics and formatting (e.g. user.get.ts (nuxt) or user.ts (next) instead of getUser.get.ts, users.get.ts for bulk operations)
-    - database clients should either be implemented in middleware (`event.context.client` in Nuxt) or as an export from a `db.ts` file and NOT imported & instantiated in every route handler because otherwise we end up with a ton of database connections.
-    - Do not use the native date input as it does not nicely handle timezones in its output. Use a datepicker library that outputs an ISO string in UTC. Complicated browser controls are also often difficult to style nicely, with pseudoelements that are not the same across all browsers.
+  - components with duplicate functionality should try to use composables (not expected to be very common)
+  - Components are used to unify styling of semantic elements, such as labels and buttons.
+  - Putting universal components everywhere instead of using the top level App component, e.g. navbars, notifications, etc are copied to every page instead of only existing once in the top level App or layout component.
+  - API routes are named with proper semantics and formatting (e.g. user.get.ts (nuxt) or user.ts (next) instead of getUser.get.ts, users.get.ts for bulk operations)
+  - database clients should either be implemented in middleware (`event.context.client` in Nuxt) or as an export from a `db.ts` file and NOT imported & instantiated in every route handler because otherwise we end up with a ton of database connections.
+  - Do not use the native date input as it does not nicely handle timezones in its output. Use a datepicker library that outputs an ISO string in UTC. Complicated browser controls are also often difficult to style nicely, with pseudoelements that are not the same across all browsers.
 
 ## Code Flow & Quality
 
-    - proper usage of framework primitives (e.g. refs, computeds, watchers for Vue, useEffect and useState for React)
-    - in particular, students tend to under-utilize computeds and watchers, instead writing functions that directly set a value when called or have to be explicitly called instead of automatically reacting to changes
+  - proper usage of framework primitives (e.g. refs, computeds, watchers for Vue, useEffect and useState for React)
+  - in particular, students tend to under-utilize computeds and watchers, instead writing functions that directly set a value when called or have to be explicitly called instead of automatically reacting to changes
 
-        ```jsx
-        let f = 0
-        const incomingData = {total:6}
-        function setF(incomingData) {
-        	f = incomingData.total
-        }
-        setF(incomingData)
-        // vs
-        const incomingData = ref({total:6})
-        const f = computed(() => incomingData.value.total)
-        ```
+      ```jsx
+      let f = 0
+      const incomingData = {total:6}
+      function setF(incomingData) {
+        f = incomingData.total
+      }
+      setF(incomingData)
+      // vs
+      const incomingData = ref({total:6})
+      const f = computed(() => incomingData.value.total)
+      ```
 
-    - Students sometimes take several loops to achieve something that can be done in one
-    - Students under-utilize iterator functions such as `for of`, `filter`, `map`, `reduce`, `Object.entries`
-    - Students tend to leave lots of commented out old code all over the place. students must get used to traversing the commit history to recover old code
-    - Students tend to leave `console.log` all over the place. these must either be gated behind a debug flag or removed when no longer needed for testing
-    - Students tend to have terrible formatting. all projects must have linting setup. students must have lint-on-save setup and we should have pre-commit hooks for every repo that run the linter.
-    - Students under-utilize `async/await`, instead using the `.then` pattern.
+  - Students sometimes take several loops to achieve something that can be done in one
+  - Students under-utilize iterator functions such as `for of`, `filter`, `map`, `reduce`, `Object.entries`
+  - Students tend to leave lots of commented out old code all over the place. students must get used to traversing the commit history to recover old code
+  - Students tend to leave `console.log` all over the place. these must either be gated behind a debug flag or removed when no longer needed for testing
+  - Students tend to have terrible formatting. all projects must have linting setup. students must have lint-on-save setup and we should have pre-commit hooks for every repo that run the linter.
+  - Students under-utilize `async/await`, instead using the `.then` pattern.
 
 ## Database
 
-    - all projects must use Prisma as their ORM
-    - names of properties on Prisma models should *not* include the model name. I already know that `User.first_name` is on the User model, `User.user_first_name` is redundant.
-    - Prisma model definitions must use the following syntax
-    ```prisma
-      model User {
-        id Int @id
-        snake_case String
-        relationId Int @map("relation_id")
-        Relation Relation @relation(fields: [relation_id], references: [id])
-        @@map("users")
-      }
-      model Relation {
-        id Int @id @default(autoincrement())
-      }
-    ```
+  - all projects must use Prisma as their ORM
+  - names of properties on Prisma models should *not* include the model name. I already know that `User.first_name` is on the User model, `User.user_first_name` is redundant.
+  - Prisma model definitions must use the following syntax
+  ```prisma
+    model User {
+      id Int @id
+      snake_case String
+      relationId Int @map("relation_id")
+      Relation Relation @relation(fields: [relation_id], references: [id])
+      @@map("users")
+    }
+    model Relation {
+      id Int @id @default(autoincrement())
+    }
+  ```
 
 ## Dependencies
 
-    - students sometimes add many extraneous dependencies. check for any that are unused.
-    - All projects must use tailwind (we still need to teach CSS though)
-    - all projects must use Auth0, or SSO for internal UTD projects
-    - we strongly discourage UI libraries. Headless UI provides sufficient functionality for most use cases while allowing full customization of the UI, and an important part of the learning experience is understanding how to build UI components. It is not that difficult to create a Card or Table component, and the UX/UI designers will always end up asking for something custom anyways so it's important to know how to build them yourself. I am interested in any additional libraries like Headless that allow for the functionality of a UI element to be combined with an arbitrary UI, as while UX/UI designers often want creative and different UI, they rarely want truly novel functionality. This makes functionality oriented libraries like Headless more flexible and broadly applicable. Headless and Tailwind are also usable across multiple frameworks with first-class support, as opposed to libraries such as Shadcn which is React only.
+  - students sometimes add many extraneous dependencies. check for any that are unused.
+  - All projects must use tailwind (we still need to teach CSS though)
+  - all projects must use Auth0, or SSO for internal UTD projects
+  - we strongly discourage UI libraries. Headless UI provides sufficient functionality for most use cases while allowing full customization of the UI, and an important part of the learning experience is understanding how to build UI components. It is not that difficult to create a Card or Table component, and the UX/UI designers will always end up asking for something custom anyways so it's important to know how to build them yourself. I am interested in any additional libraries like Headless that allow for the functionality of a UI element to be combined with an arbitrary UI, as while UX/UI designers often want creative and different UI, they rarely want truly novel functionality. This makes functionality oriented libraries like Headless more flexible and broadly applicable. Headless and Tailwind are also usable across multiple frameworks with first-class support, as opposed to libraries such as Shadcn which is React only.
 
 ## Test data
 
