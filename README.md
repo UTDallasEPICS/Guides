@@ -57,3 +57,8 @@ These documents go into more specific detail about various processes, tools, and
 - [State Management](./architecture_and_systems/state_management.md)
 - [Users, Roles, and Permissions](./architecture_and_systems/users_roles_permissions.md)
 - [Authentication and Auth0](./architecture_and_systems/authentication.md)
+
+
+#### Hardware Guides
+
+- [CAD Tutorial - Fusion 360](./hardware/CAD_fusion360.md)
