@@ -6,7 +6,7 @@
 
 Full-Stack applications consist of a frontend, backend, and database. This is what most EPICS projects end up being. We use JavaScript metaframeworks, which integrate backend and frontend functionality into one codebase.
 
-[Nuxt](https://nuxt.com) (based on React) or [Next.js](https://nextjs.org) (based on Vue.js) are required for new full-stack projects. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first.
+[Nuxt](https://nuxt.com) (based on Vue.js) or [Next.js](https://nextjs.org) (based on React) are required for new full-stack projects. **Do not** create a standalone server (e.g. H3 or Express.js) without talking to your mentor first.
 
 
 ### Back-End Only Projects
