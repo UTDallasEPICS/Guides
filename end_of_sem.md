@@ -57,3 +57,6 @@ In the repo's GitHub wiki, include the following:
 - [ ] Every third party integration should have its own page describing what parts of that service are used, how, and why
 
 These should be high level - you should not be explaining every line of code.
+
+## Examples
+See [Comet Cupboard](https://github.com/UTDallasEPICS/Comet-Cupboard/wiki#shopping-functionality) and [Wellness Center](https://github.com/UTDallasEPICS/Wellness-Center-Older-Adults/wiki) for examples of what documentation can look like.
