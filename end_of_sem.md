@@ -46,7 +46,7 @@ A README.md file at the top level containing the following:
   - How do you set up authentication?
   - Etc.
 
-### Optional Additional Documentation
+### Additional Documentation
 
 In the repo's GitHub wiki, include the following:
 
