@@ -1,59 +1,73 @@
-# Guides
+# EPICS Web Development Guides
 
-In here you will find various guides and notes. All of these have been prepared by current and previous EPICS students, mentors, and staff members.
+This repository contains engineering guides, architecture patterns, tooling references, and starter demos prepared by UTDesign EPICS students, mentors, and staff members.
 
-## How to Use These Guides
+---
 
-Each of these guides covers a different aspect of a typical web application developed in EPICS. For all students, we recommend starting with Taz's videos (link below). From there, many other guides are provided which will be useful as you progress through the semester.
+## Getting Started
+
+For all students working on CS/web projects, start with **Taz's Getting Started Videos**. Watching these videos counts as one of your required workshops for the semester.
 
 ### [Taz's Getting Started Videos](https://utdallas.box.com/v/epics-cs-introduction-videos)
+Core topics covered:
+1. **Git**: Command-line version control and workflows
+2. **GitHub**: Pull requests, branching, and collaboration
+3. **Bash / CLI**: Navigating and executing tasks in the terminal
+4. **Clients, Servers, and Databases**: Full-stack architecture fundamentals
+5. **Browser Developer Tools**: Inspecting DOM, network requests, and debugging
 
-[https://utdallas.box.com/v/epics-cs-introduction-videos](https://utdallas.box.com/v/epics-cs-introduction-videos)
+---
 
-We recommend all students working on CS projects watch these videos. Additionally, **watching all of these videos counts as one of your two required workshops for the semester**.
-These videos cover the following 5 topics:
+## Architecture & System Design
 
-- Git (a command line tool for code management)
-- GitHub (a web application built around Git)
-- Bash (the command line)
-- Clients, servers, and databases
-- Browser Developer Tools
+These guides cover fundamental system design and architectural concepts for building scalable, maintainable full-stack applications:
 
-### Other Documents
+- **[Databases](./architecture_and_systems/databases.md)**: Relational vs. non-relational databases, SQL schema design, normalization, and Prisma ORM.
+- **[Data Flow in Applications](./architecture_and_systems/data_flow.md)**: Request/response lifecycle, HTTP methods, Fetch API in Vue/Nuxt, and Server-Side Rendering (SSR).
+- **[Frontend vs Backend Routing](./architecture_and_systems/frontend_vs_backend_routing.md)**: Differences between client-side SPA routing and server API routes, redirects, and navigation.
+- **[Component-Based Design](./architecture_and_systems/component_based_design.md)**: Building modular user interfaces with Vue Single File Components (SFCs), props, and custom events.
+- **[State Management](./architecture_and_systems/state_management.md)**: Managing component-level state and reusable stateful logic with Vue Composables and global application state with Pinia.
+- **[Authentication and Better Auth](./architecture_and_systems/authentication.md)**: Password hashing (Argon2/scrypt), session cookies, JWTs, and end-to-end authentication setup using Better Auth, Nuxt, and Prisma.
+- **[Users, Roles, and Permissions](./architecture_and_systems/users_roles_and_permissions.md)**: Modeling user accounts, role-based access control (RBAC), multi-tenant/store relationships, and granular permissions with Better Auth and Prisma.
 
-These documents go into more specific detail about various processes, tools, and frameworks that will be useful for web app development.
+---
 
-#### EPICS Specific Stuff
+## EPICS Standards & Project Guidelines
 
-- [Tech Stack Recommendations](./EPICS/tech_stack.md)
-- [End of Semester Checklist](./EPICS/checklist.md)
-- [Example README.md](./EPICS/example_readme.md)
-- [General Policies and Recommendations](./EPICS/policies.md)
-- [Recommended VS Code Extensions](./EPICS/vscode_extensions.md)
-- [Onboarding Timeline](./EPICS/student_onboard.md)
+- **[Tech Stack Recommendations](./EPICS/tech_stack.md)**: Approved frameworks, databases, and deployment options for EPICS projects (Nuxt/Vue, PostgreSQL/MySQL, Prisma, Docker).
+- **[End of Semester Checklist](./end_of_sem.md)**: Deliverable requirements, project repository handoff checklist, and documentation criteria.
+- **[Code Review & Quality Guide](./EPICS/review.md)**: Expectations for code quality, project structure, framework conventions, Prisma usage, and dependency management.
+- **[General Policies & Recommendations](./EPICS/policies.md)**: Codebase rules, environment variable management, and team best practices.
+- **[Student Onboarding Timeline](./EPICS/student_onboard.md)**: Week-by-week onboarding milestones for new team members.
+- **[Recommended VS Code Extensions](./EPICS/vscode_extensions.md)**: Recommended editor tooling and extensions for Vue, Prisma, Tailwind, and TypeScript.
+- **[Example Project README](./EPICS/example_readme.md)**: Reference template for project README files.
 
-> WARNING: The following guides are NOT exhaustive. There is a significant amount of nuance that cannot be fit into this guide.They are not a replacement for reading the documentation and personal experimentation. Read the docs, experiment with writing code. The best way to learn is by doing.
+---
 
-#### Language & Framework Info
+## Languages & Frameworks
 
-- [Express.js](./languages_and_frameworks/express.md)
-- [Web Development Pathway](./languages_and_frameworks/webdev_pathway.md)
+- **[Web Development Pathway](./languages_and_frameworks/webdev_pathway.md)**: Structured learning path from HTML/CSS/JS fundamentals through modern frameworks.
+- **[Express.js Guide](./languages_and_frameworks/express.md)**: Reference notes for Node.js Express server architectures.
 
-#### Tooling
+---
 
-- [Node.js](./tooling/node_nvm_npm_pnpm.md)
-- [Docker and Windows Subsystem for Linux](./tooling/docker_wsl_setup.md)
-- [Documentation Tools](./tooling/documentation_tools.md)
-- [Node.js Files Explained](./tooling/files.md)
-- [Git Setup](./tooling/repo_cli_setup.md)
-- [Git Tutorials](./tooling/git_tutorials.md)
+## Tooling & Environment Setup
 
-#### Architecture & System Design
+- **[Node.js, NVM, and Package Managers](./tooling/node_nvm_npm_pnpm.md)**: Installing Node.js via NVM, comparing npm vs. pnpm.
+- **[Docker & Windows Subsystem for Linux (WSL)](./tooling/docker_wsl_setup.md)**: Setting up containerized local development environments on Linux and Windows WSL.
+- **[Node.js Files Explained](./tooling/files.md)**: Explanation of `package.json`, lockfiles, `.env`, `.gitignore`, and configuration dotfiles.
+- **[Git Repository CLI Setup](./tooling/repo_cli_setup.md)**: SSH keys, GitHub CLI setup, and repository cloning.
+- **[Git Tutorials](./tooling/git_tutorials.md)**: Interactive tutorials for learning Git branching and official Git guides.
+- **[Prisma with Edge Functions](./tooling/prisma_edge_functions_setup.md)**: Configuring Prisma driver adapters for serverless edge runtimes.
+- **[Documentation Tools](./tooling/documentation_tools.md)**: Markdown syntax, Mermaid diagram syntax, and UML class diagram tutorials.
+- **[Web Development Video Playlist](./webdev_playlist.md)**: Curated video playlist covering essential web development concepts.
 
-- [Databases](./architecture_and_systems/databases.md)
-- [Data Flow in Applications](./architecture_and_systems/data_flow.md)
-- [Frontend vs Backend Routing](./architecture_and_systems/frontend_vs_backend_routing.md)
-- [Component Based Design](./architecture_and_systems/component_based_design.md)
-- [State Management](./architecture_and_systems/state_management.md)
-- [Users, Roles, and Permissions](./architecture_and_systems/users_roles_permissions.md)
-- [Authentication and Auth0](./architecture_and_systems/authentication.md)
+---
+
+## Demos
+
+Interactive example projects included in this repository:
+
+- **[Vue 3 Demo](./demos/vue-demo/)**: Single Page Application built with Vue 3, Vite, Pinia, Vue Router, and TypeScript.
+- **[Servers & Prisma Demo](./demos/servers/)**: Node.js backend demonstration with Express, Prisma ORM, and SQLite.
+- **[HTML / CSS / JavaScript Demo](./demos/html_css_js/)**: Foundational client-side demonstration without frameworks.

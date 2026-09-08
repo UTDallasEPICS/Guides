@@ -59,16 +59,16 @@ Secrets (even not-secret things like frontend API keys) must also be handled wit
   - components with duplicate functionality should try to use composables (not expected to be very common)
   - Components are used to unify styling of semantic elements, such as labels and buttons.
   - Putting universal components everywhere instead of using the top level App component, e.g. navbars, notifications, etc are copied to every page instead of only existing once in the top level App or layout component.
-  - API routes are named with proper semantics and formatting (e.g. user.get.ts (nuxt) or user.ts (next) instead of getUser.get.ts, users.get.ts for bulk operations)
+  - API routes are named with proper semantics and formatting (e.g. user.get.ts (nuxt) instead of getUser.get.ts, users.get.ts for bulk operations)
   - database clients should either be implemented in middleware (`event.context.client` in Nuxt) or as an export from a `db.ts` file and NOT imported & instantiated in every route handler because otherwise we end up with a ton of database connections.
   - Do not use the native date input as it does not nicely handle timezones in its output. Use a datepicker library that outputs an ISO string in UTC. Complicated browser controls are also often difficult to style nicely, with pseudoelements that are not the same across all browsers.
 
 ## Code Flow & Quality
 
-  - proper usage of framework primitives (e.g. refs, computeds, watchers for Vue, useEffect and useState for React)
+  - proper usage of framework primitives (e.g. refs, computeds, and watchers for Vue)
   - in particular, students tend to under-utilize computeds and watchers, instead writing functions that directly set a value when called or have to be explicitly called instead of automatically reacting to changes
 
-      ```jsx
+      ```js
       let f = 0
       const incomingData = {total:6}
       function setF(incomingData) {

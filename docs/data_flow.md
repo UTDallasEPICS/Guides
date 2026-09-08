@@ -100,65 +100,11 @@ async function postData() {
 }
 ```
 
-Using network requests in React or Next requires special considerations as they must be wrapped in useEffect if they are going to be fetching data after the component has rendered, such as on mount of the component. Usage in Vue and Nuxt is straightforward, essentially the same as in vanilla JavaScript, but Nuxt gives us some extra quality of life features, such as useFetch for loading data with automatic serverside support and $fetch as a more convenient wrapper for fetch.
+Usage in Vue and Nuxt is straightforward, essentially the same as in vanilla JavaScript, but Nuxt gives us some extra quality of life features, such as `useFetch` for loading data with automatic serverside support and `$fetch` as a more convenient wrapper for `fetch`.
 
-> Note from Taz: you CANNOT use async inside of a `useEffect`. You have to define an async function inside the `useEffect` that does what you want with whatever `await`s you need inside of the function, and then call it inside the `useEffect`. In Vue, you can use `await` anywhere except a `computed`.
+> Note from Taz: in Vue, you can use `await` anywhere except a `computed`.
 
-An example for sending data in React:
-
-```js
-import React, { useState } from "react";
-
-function MyComponent() {
-  const [formData, setFormData] = useState({ name: "", email: "" });
-  const [responseData, setResponseData] = useState(null);
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("https://api.example.com/data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      setResponseData(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleInputChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-        />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {responseData && <div>Response: {JSON.stringify(responseData)}</div>}
-    </div>
-  );
-}
-```
-
-The same example in Vue:
+An example for sending data in Vue:
 
 ```html
 <template>
@@ -198,7 +144,7 @@ The same example in Vue:
 </script>
 ```
 
-Next and Nuxt provide mechanisms for fetching the required data before a page is sent to the client. This is called server-side rendering, where the server will make any database calls it can before sending the page so that the client does not have to make extra requests after loading the page. This also enables Search Engine Optimization (SEO) for the content, as search engines will be able to index the content when the page loads. For details on these mechanisms, checkout the relevant documentation for [Nuxt](https://nuxtjs.org/guide/features/fetch) and [Next](https://nextjs.org/docs/pages/building-your-application/data-fetching) websites.
+Nuxt provides mechanisms for fetching the required data before a page is sent to the client. This is called server-side rendering, where the server will make any database calls it can before sending the page so that the client does not have to make extra requests after loading the page. This also enables Search Engine Optimization (SEO) for the content, as search engines will be able to index the content when the page loads. For details on these mechanisms, checkout the relevant documentation for [Nuxt](https://nuxt.com/docs/getting-started/data-fetching).
 
 For more information on using the fetch API, see the [corresponding MDN pages](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
 
