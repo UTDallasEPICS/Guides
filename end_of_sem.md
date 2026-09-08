@@ -35,7 +35,7 @@ A README.md file at the top level containing the following:
   - Include frontend framework (Vue, Svelte, etc.)
   - Include backend framework (Express.js, etc.)
   - If you use a meta framework, where the frontend and backend are combined, then you do not need to differentiate between frontend and backend (Nuxt, Sveltekit, etc.)
-  - Database (PostgreSQL, MySQL, MongoDB, etc.)
+  - Database (SQLite)
   - Other important packages (UI plugins, database connectors like prisma)
   - Other tools used/needed (such as Postman)
 - [ ] Deployment notes (if project is currently or in the process of being deployed) - is the partner running the application on their own servers or are they using something like AWS or Azure?

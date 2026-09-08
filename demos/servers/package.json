@@ -1,17 +1,25 @@
 {
   "name": "servers",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nitro dev",
+    "build": "nitro build",
+    "preview": "node .output/server/index.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.19.1",
-    "express": "^4.19.2",
-    "prisma": "^5.19.1"
+    "@libsql/client": "^0.18.0",
+    "drizzle-orm": "^0.38.4",
+    "nitropack": "^2.10.4"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.30.4",
+    "typescript": "^5.7.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

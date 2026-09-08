@@ -17,10 +17,9 @@ These are general policies to follow when working on your projects.
 - Do NOT commit node_modules - make sure [.gitignore](https://git-scm.com/docs/gitignore) is properly configured. Most scaffolds should handle this automatically.
 - Repository authentication is either through logging in via [VSCode](https://code.visualstudio.com), [GitHub Desktop](https://desktop.github.com), or through [SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-## Development Stack
+## AI
 
-- Databases should be instantiated using a `docker-compose` file (unless the project is using SQLite)
-- [Prisma](https://www.prisma.io) is required for use with all new projects involving a database
+AI usage is not prohibited, but you are responsible for the code you ship. Claude isn't the one getting a grade. Copilot is not the one who will get fired.
 
 ## Other
 

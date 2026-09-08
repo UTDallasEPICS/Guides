@@ -118,8 +118,8 @@ Better Auth requires four core models in your Prisma schema: `User`, `Session`, 
 
 ```prisma
 datasource db {
-  provider = "postgresql" // or "mysql", "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 generator client {
@@ -206,7 +206,7 @@ const prisma = new PrismaClient();
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
-    provider: "postgresql", // or "mysql", "sqlite"
+    provider: "sqlite",
   }),
   emailAndPassword: {
     enabled: true,

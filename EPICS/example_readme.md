@@ -46,7 +46,7 @@ This system is focused around advocates, families, and pages. Advocates invite f
 
 ### Stack
 
-Nuxt, postgres, prisma
+Nuxt, SQLite, Prisma
 
 ### Research Questions
 
@@ -55,7 +55,7 @@ None
 ### Third party integrations
 
 - Stripe for payments
-- Auth0 for authentication
+- Better Auth for authentication
 - AWS SES for emails
 
 ### Deployment

@@ -22,19 +22,19 @@ Core topics covered:
 
 These guides cover fundamental system design and architectural concepts for building scalable, maintainable full-stack applications:
 
-- **[Databases](./architecture_and_systems/databases.md)**: Relational vs. non-relational databases, SQL schema design, normalization, and Prisma ORM.
-- **[Data Flow in Applications](./architecture_and_systems/data_flow.md)**: Request/response lifecycle, HTTP methods, Fetch API in Vue/Nuxt, and Server-Side Rendering (SSR).
-- **[Frontend vs Backend Routing](./architecture_and_systems/frontend_vs_backend_routing.md)**: Differences between client-side SPA routing and server API routes, redirects, and navigation.
-- **[Component-Based Design](./architecture_and_systems/component_based_design.md)**: Building modular user interfaces with Vue Single File Components (SFCs), props, and custom events.
-- **[State Management](./architecture_and_systems/state_management.md)**: Managing component-level state and reusable stateful logic with Vue Composables and global application state with Pinia.
-- **[Authentication and Better Auth](./architecture_and_systems/authentication.md)**: Password hashing (Argon2/scrypt), session cookies, JWTs, and end-to-end authentication setup using Better Auth, Nuxt, and Prisma.
-- **[Users, Roles, and Permissions](./architecture_and_systems/users_roles_and_permissions.md)**: Modeling user accounts, role-based access control (RBAC), multi-tenant/store relationships, and granular permissions with Better Auth and Prisma.
+- **[Databases](./docs/databases.md)**: Relational vs. non-relational databases, SQL schema design, normalization, and Prisma ORM.
+- **[Data Flow in Applications](./docs/data_flow.md)**: Request/response lifecycle, HTTP methods, Fetch API in Vue/Nuxt, and Server-Side Rendering (SSR).
+- **[Frontend vs Backend Routing](./docs/frontend_vs_backend_routing.md)**: Differences between client-side SPA routing and server API routes, redirects, and navigation.
+- **[Component-Based Design](./docs/component_based_design.md)**: Building modular user interfaces with Vue Single File Components (SFCs), props, and custom events.
+- **[State Management](./docs/state_management.md)**: Managing component-level state and reusable stateful logic with Vue Composables and global application state with Pinia.
+- **[Authentication and Better Auth](./docs/authentication.md)**: Password hashing (Argon2/scrypt), session cookies, JWTs, and end-to-end authentication setup using Better Auth, Nuxt, and Prisma.
+- **[Users, Roles, and Permissions](./docs/users_roles_and_permissions.md)**: Modeling user accounts, role-based access control (RBAC), multi-tenant/store relationships, and granular permissions with Better Auth and Prisma.
 
 ---
 
 ## EPICS Standards & Project Guidelines
 
-- **[Tech Stack Recommendations](./EPICS/tech_stack.md)**: Approved frameworks, databases, and deployment options for EPICS projects (Nuxt/Vue, PostgreSQL/MySQL, Prisma, Docker).
+- **[Tech Stack Recommendations](./EPICS/tech_stack.md)**: Approved frameworks, databases, and deployment options for EPICS projects (Nuxt/Vue, SQLite, Prisma, Docker).
 - **[End of Semester Checklist](./end_of_sem.md)**: Deliverable requirements, project repository handoff checklist, and documentation criteria.
 - **[Code Review & Quality Guide](./EPICS/review.md)**: Expectations for code quality, project structure, framework conventions, Prisma usage, and dependency management.
 - **[General Policies & Recommendations](./EPICS/policies.md)**: Codebase rules, environment variable management, and team best practices.
@@ -44,23 +44,11 @@ These guides cover fundamental system design and architectural concepts for buil
 
 ---
 
-## Languages & Frameworks
+## Tooling & Documentation References
 
-- **[Web Development Pathway](./languages_and_frameworks/webdev_pathway.md)**: Structured learning path from HTML/CSS/JS fundamentals through modern frameworks.
-- **[Express.js Guide](./languages_and_frameworks/express.md)**: Reference notes for Node.js Express server architectures.
-
----
-
-## Tooling & Environment Setup
-
-- **[Node.js, NVM, and Package Managers](./tooling/node_nvm_npm_pnpm.md)**: Installing Node.js via NVM, comparing npm vs. pnpm.
-- **[Docker & Windows Subsystem for Linux (WSL)](./tooling/docker_wsl_setup.md)**: Setting up containerized local development environments on Linux and Windows WSL.
-- **[Node.js Files Explained](./tooling/files.md)**: Explanation of `package.json`, lockfiles, `.env`, `.gitignore`, and configuration dotfiles.
-- **[Git Repository CLI Setup](./tooling/repo_cli_setup.md)**: SSH keys, GitHub CLI setup, and repository cloning.
-- **[Git Tutorials](./tooling/git_tutorials.md)**: Interactive tutorials for learning Git branching and official Git guides.
-- **[Prisma with Edge Functions](./tooling/prisma_edge_functions_setup.md)**: Configuring Prisma driver adapters for serverless edge runtimes.
-- **[Documentation Tools](./tooling/documentation_tools.md)**: Markdown syntax, Mermaid diagram syntax, and UML class diagram tutorials.
-- **[Web Development Video Playlist](./webdev_playlist.md)**: Curated video playlist covering essential web development concepts.
+- **[Documentation Tools](./docs/documentation_tools.md)**: Markdown syntax, Mermaid diagram syntax, and UML class diagram tutorials.
+- **[Git Tutorials](./docs/git_tutorials.md)**: Interactive tutorials for learning Git branching and official Git guides.
+- **[Web Development Video Playlist](./docs/webdev_playlist.md)**: Curated video playlist covering essential web development concepts.
 
 ---
 
@@ -68,6 +56,7 @@ These guides cover fundamental system design and architectural concepts for buil
 
 Interactive example projects included in this repository:
 
-- **[Vue 3 Demo](./demos/vue-demo/)**: Single Page Application built with Vue 3, Vite, Pinia, Vue Router, and TypeScript.
-- **[Servers & Prisma Demo](./demos/servers/)**: Node.js backend demonstration with Express, Prisma ORM, and SQLite.
+- **[Nuxt 4 Full-Stack Demo](./demos/nuxt-demo/)**: Full-stack application combining frontend and backend into Nuxt 4 with Nuxt UI, Tailwind CSS, SQLite, Drizzle ORM, page layouts, and dedicated editing routes.
+- **[Vue 3 SPA Demo](./demos/vue-demo/)**: Single Page Application built with Vue 3, Vite, Pinia, Vue Router, and TypeScript.
+- **[Nitro & Drizzle ORM Server Demo](./demos/servers/)**: Standalone backend server demonstration built with Nitro, Drizzle ORM, and SQLite.
 - **[HTML / CSS / JavaScript Demo](./demos/html_css_js/)**: Foundational client-side demonstration without frameworks.

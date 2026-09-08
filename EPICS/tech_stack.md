@@ -19,11 +19,11 @@ If we only need a single-page application (SPA) [Vue.js](https://vuejs.org) is r
 
 ### Databases
 
-For web project databases, you may should choose an SQL database ([MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org), or [SQLite](https://www.sqlite.org/index.html)). Though [MongoDB](https://www.mongodb.com) is popular, it is not optimal for most EPICS projects due to unstructured nature of the database. If you believe MongoDB is a good fit for your project, speak with your mentor. Either way, [Prisma](https://www.prisma.io) is highly recommended for database schema management. Prisma makes it much easier to define and understand how your database is set up and is compatible with all major databases.
+For web project databases, [SQLite](https://www.sqlite.org/index.html) is our required standard. SQLite is a lightweight, zero-configuration, self-contained SQL database engine that stores data directly in a local file, making local setup, testing, and deployment straightforward. [Prisma](https://www.prisma.io) is required for database schema management and type-safe database queries.
 
 ### Environment
 
-We use [docker](https://www.docker.com) containers for running infrastructure locally (databases at a minimum, excluding SQLite). Students using Windows as their personal machine will need to setup [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
+We use [docker](https://www.docker.com) containers for running infrastructure locally when needed. Students using Windows as their personal machine will need to setup [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ### Deployment
 

@@ -18,8 +18,8 @@ Better Auth uses standard core models (`User`, `Session`, `Account`, `Verificati
 
 ```prisma
 datasource db {
-  provider = "postgresql" // or "mysql", "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 generator client {
@@ -203,7 +203,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "./db";
 
 export const auth = betterAuth({
-  database: prismaAdapter(prisma, { provider: "postgresql" }),
+  database: prismaAdapter(prisma, { provider: "sqlite" }),
   plugins: [
     admin({
       defaultRole: "user",
